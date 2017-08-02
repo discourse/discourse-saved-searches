@@ -1,0 +1,21 @@
+<div class="control-group category-notifications">
+  <label class="control-label">{{i18n 'saved_searches.title'}}</label>
+
+  <label>{{i18n 'saved_searches.description' max=maxSavedSearches}}</label>
+
+  <br/>
+
+  {{#each searchStrings as |search index| }}
+    <div class="controls saved-searches-controls">
+      {{input type="text" value=search.query class="input-xxlarge"}}
+    </div>
+  {{/each}}
+</div>
+
+
+<br/>
+<div class="control-group save-button">
+  <div class="controls">
+    {{partial 'user/preferences/save-button'}}
+  </div>
+</div>
