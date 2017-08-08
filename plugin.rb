@@ -12,10 +12,10 @@ after_initialize do
   require_dependency File.expand_path('../app/jobs/regular/saved_search_notification.rb', __FILE__)
   require_dependency File.expand_path('../app/jobs/scheduled/schedule_saved_searches.rb', __FILE__)
 
-  User.register_custom_field_type('saved_searches', :json) # array of strings
+  User.register_custom_field_type('saved_searches', :json)
 
   add_to_serializer(:user, :saved_searches, false) do
-    object.custom_fields['saved_searches']
+    (object.custom_fields['saved_searches'] || {})['searches']
   end
 
   add_to_serializer(:user, :include_saved_searches?, false) do
@@ -36,7 +36,7 @@ after_initialize do
 
     def update
       if params[:searches]
-        current_user.custom_fields['saved_searches'] = params[:searches].to_json
+        current_user.custom_fields['saved_searches'] = { "searches" => params[:searches] }
         current_user.save
       else
         UserCustomField.where(name: 'saved_searches', user_id: current_user.id).first&.destroy

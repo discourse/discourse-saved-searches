@@ -1,8 +1,9 @@
 module Jobs
   class ScheduleSavedSearches < Jobs::Scheduled
 
-    # every { 1.day }
-    every { 1.minute }
+    SEARCH_INTERVAL = 1.day
+
+    every SEARCH_INTERVAL
 
     def execute(args)
       user_ids.each do |user_id|
@@ -13,5 +14,6 @@ module Jobs
     def user_ids
       UserCustomField.where(name: 'saved_searches').pluck(:user_id)
     end
+
   end
 end
