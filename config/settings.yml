@@ -5,3 +5,4 @@ plugins:
   saved_searches_min_trust_level:
     default: 1
     client: true
+    enum: 'TrustLevelSetting'
