@@ -46,8 +46,8 @@ describe Jobs::SavedSearchNotification do
       end
 
       it "doesn't create a PM if results are too old" do
-        topic = Fabricate(:topic, user: tl2_user, created_at: 25.hours.ago)
-        post = Fabricate(:post, topic: topic, user: tl2_user, raw: "Check out these coupon codes for cool things.", created_at: 25.hours.ago)
+        topic = Fabricate(:topic, user: tl2_user, created_at: 48.hours.ago)
+        post = Fabricate(:post, topic: topic, user: tl2_user, raw: "Check out these coupon codes for cool things.", created_at: 48.hours.ago)
         expect {
           described_class.new.execute(user_id: user.id)
         }.to_not change { Topic.count }
