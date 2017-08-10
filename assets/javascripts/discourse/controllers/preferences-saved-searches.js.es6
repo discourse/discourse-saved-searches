@@ -4,7 +4,21 @@ import { popupAjaxError } from 'discourse/lib/ajax-error';
 
 export default Ember.Controller.extend({
   saving: false,
-  maxSavedSearches: 5,
+
+  @computed('model.author_level')
+  maxSavedSearches(authorLevel) {
+    if (authorLevel && authorLevel > 2) {
+      if (authorLevel >= 7) { return 15; }
+      if (authorLevel >= 5) { return 10; }
+      return 5;
+    } else {
+      if (this.get('model.staff')) {
+        return 5;
+      } else {
+        return 0;
+      }
+    }
+  },
 
   @computed('model.saved_searches')
   searchStrings() {

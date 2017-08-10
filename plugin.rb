@@ -22,6 +22,19 @@ after_initialize do
     plugin.enabled? && scope.can_edit?(object)
   end
 
+  add_to_serializer(:user, :author_level, false) do
+    author_badges = object.badges.map(&:name).reject { |n| !n.downcase.start_with?('author level') }.sort
+    if author_badges.empty?
+      0
+    else
+      author_badges.last.downcase.gsub("author level", '').strip.to_i
+    end
+  end
+
+  add_to_serializer(:user, :include_author_level?, false) do
+    plugin.enabled? && scope.can_edit?(object)
+  end
+
   module ::SavedSearches
     class Engine < ::Rails::Engine
       engine_name 'saved_searches'
