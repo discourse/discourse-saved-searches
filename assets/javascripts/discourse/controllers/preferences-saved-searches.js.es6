@@ -13,7 +13,7 @@ export default Ember.Controller.extend({
       return 5;
     } else {
       if (this.get('model.staff')) {
-        return 5;
+        return 15;
       } else {
         return 0;
       }
