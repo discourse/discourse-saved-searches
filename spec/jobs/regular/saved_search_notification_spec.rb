@@ -37,6 +37,13 @@ describe Jobs::SavedSearchNotification do
           }.to change { Topic.where(subtype: TopicSubtype.system_message).count }.by(1)
         end
 
+        it "creates a PM for each search term" do
+          post2 = Fabricate(:post, topic: Fabricate(:topic, user: tl2_user), user: tl2_user, raw: "An exclusive discount just for you cool people.")
+          expect {
+            described_class.new.execute(user_id: user.id)
+          }.to change { Topic.where(subtype: TopicSubtype.system_message).count }.by(2)
+        end
+
         it "does nothing if trust level is too low" do
           SiteSetting.saved_searches_min_trust_level = 2
           expect {
@@ -82,10 +89,21 @@ describe Jobs::SavedSearchNotification do
         }.to_not change { Topic.where(subtype: TopicSubtype.system_message).count }
       end
 
-      it "notifies about new results" do
-        post2 = Fabricate(:post, topic: topic, user: tl2_user, raw: "Everyone loves a good discount.")
+      it "notifies about new result in the same topic" do
+        post2 = Fabricate(:post, topic: topic, user: tl2_user, raw: "Everyone loves a good coupon I think.")
         expect {
           described_class.new.execute(user_id: user.id)
+          topic = Topic.where(title: I18n.t('system_messages.saved_searches_notification.subject_template', term: 'coupon')).first
+          expect(topic.posts.count).to eq(2)
+        }.to_not change { Topic.where(subtype: TopicSubtype.system_message).count }
+      end
+
+      it "creates a new topic if it's for a different search term" do
+        post2 = Fabricate(:post, topic: topic, user: tl2_user, raw: "Everyone loves a good discount I think.")
+        expect {
+          described_class.new.execute(user_id: user.id)
+          topic = Topic.where(title: I18n.t('system_messages.saved_searches_notification.subject_template', term: 'discount')).first
+          expect(topic.posts.count).to eq(1)
         }.to change { Topic.where(subtype: TopicSubtype.system_message).count }.by(1)
       end
     end

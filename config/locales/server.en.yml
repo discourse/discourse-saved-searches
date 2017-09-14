@@ -5,9 +5,9 @@ en:
   system_messages:
     saved_searches_notification:
       title: "New Search Results"
-      subject_template: "New Search Results"
+      subject_template: "New Search Results: %{term}"
       post_link_text: "[**%{title}**, post #%{post_number}](%{url})"
       text_body_template: |
-        New results have been found for your saved searches!
+        New results have been found for **%{term}**!
 
         %{posts}
