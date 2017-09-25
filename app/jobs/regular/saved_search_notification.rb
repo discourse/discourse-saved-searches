@@ -50,7 +50,7 @@ module Jobs
         # Find existing topic for this search term
         if tcf = TopicCustomField.where(name: custom_field_name(user), value: term).first
           topic = tcf.topic
-          PostCreator.create!(Discourse.site_contact_user,
+          PostCreator.create!(Discourse.system_user,
             topic_id: topic.id,
             raw: I18n.t('system_messages.saved_searches_notification.text_body_template', posts: posts_raw, term: term),
             skip_validations: true)
