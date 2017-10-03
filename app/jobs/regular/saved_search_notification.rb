@@ -35,7 +35,7 @@ module Jobs
 
     def results_notification(user, term, posts)
       if posts.size > 0
-        posts_raw = if posts.size < 3
+        posts_raw = if posts.size < 6
           posts.map(&:full_url).join("\n\n".freeze)
         else
           posts.map do |post|
