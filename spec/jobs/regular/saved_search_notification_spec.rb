@@ -67,6 +67,15 @@ describe Jobs::SavedSearchNotification do
           described_class.new.execute(user_id: user.id)
         }.to_not change { Topic.count }
       end
+
+      it "doesn't notify for small actions" do
+        topic = Fabricate(:topic, user: user)
+        post = Fabricate(:post, topic: topic, user: tl2_user, raw: "Check out these great deals for cool things.")
+        post = Fabricate(:post, topic: topic, user: Fabricate(:admin), raw: "Moved this to coupon category.", post_type: Post.types[:small_action], post_number: 2)
+        expect {
+          described_class.new.execute(user_id: user.id)
+        }.to_not change { Topic.count }
+      end
     end
 
     context "not the first search" do

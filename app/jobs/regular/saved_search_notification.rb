@@ -17,7 +17,7 @@ module Jobs
             search = Search.new("#{term} in:unseen after:#{since.strftime("%Y-%-m-%-d")} order:latest", guardian: Guardian.new(user))
             results = search.execute
             if results.posts.count > 0 && results.posts.first.id > min_post_id
-              posts = results.posts.reject { |post| post.user_id == user.id }
+              posts = results.posts.reject { |post| post.user_id == user.id || post.post_type != Post.types[:regular] }
               if posts.size > 0
                 results_notification(user, term, posts)
                 min_post_id = [min_post_id, posts.map(&:id).max].max
