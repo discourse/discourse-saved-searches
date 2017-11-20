@@ -48,7 +48,7 @@ module Jobs
         end
 
         # Find existing topic for this search term
-        if tcf = TopicCustomField.where(name: custom_field_name(user), value: term).first
+        if tcf = TopicCustomField.joins(:topic).where(name: custom_field_name(user), value: term).last
           topic = tcf.topic
           PostCreator.create!(Discourse.system_user,
             topic_id: topic.id,
