@@ -67,6 +67,15 @@ describe Jobs::SavedSearchNotification do
           described_class.new.execute(user_id: user.id)
         }.to_not change { Topic.count }
       end
+
+      it "doesn't notify for small actions" do
+        topic = Fabricate(:topic, user: user)
+        post = Fabricate(:post, topic: topic, user: tl2_user, raw: "Check out these great deals for cool things.")
+        post = Fabricate(:post, topic: topic, user: Fabricate(:admin), raw: "Moved this to coupon category.", post_type: Post.types[:small_action], post_number: 2)
+        expect {
+          described_class.new.execute(user_id: user.id)
+        }.to_not change { Topic.count }
+      end
     end
 
     context "not the first search" do
@@ -93,8 +102,8 @@ describe Jobs::SavedSearchNotification do
         post2 = Fabricate(:post, topic: topic, user: tl2_user, raw: "Everyone loves a good coupon I think.")
         expect {
           described_class.new.execute(user_id: user.id)
-          topic = Topic.where(title: I18n.t('system_messages.saved_searches_notification.subject_template', term: 'coupon')).first
-          expect(topic.posts.count).to eq(2)
+          pm = Topic.where(title: I18n.t('system_messages.saved_searches_notification.subject_template', term: 'coupon')).first
+          expect(pm.posts.count).to eq(2)
         }.to_not change { Topic.where(subtype: TopicSubtype.system_message).count }
       end
 
@@ -102,8 +111,19 @@ describe Jobs::SavedSearchNotification do
         post2 = Fabricate(:post, topic: topic, user: tl2_user, raw: "Everyone loves a good discount I think.")
         expect {
           described_class.new.execute(user_id: user.id)
-          topic = Topic.where(title: I18n.t('system_messages.saved_searches_notification.subject_template', term: 'discount')).first
-          expect(topic.posts.count).to eq(1)
+          pm = Topic.where(title: I18n.t('system_messages.saved_searches_notification.subject_template', term: 'discount')).first
+          expect(pm.posts.count).to eq(1)
+        }.to change { Topic.where(subtype: TopicSubtype.system_message).count }.by(1)
+      end
+
+      it "creates a new topic if the previous one was deleted" do
+        pm = Topic.where(title: I18n.t('system_messages.saved_searches_notification.subject_template', term: 'coupon')).first
+        pm.trash!
+        post2 = Fabricate(:post, topic: topic, user: tl2_user, raw: "Everyone loves a good coupon I think.")
+        expect {
+          described_class.new.execute(user_id: user.id)
+          pm = Topic.where(title: I18n.t('system_messages.saved_searches_notification.subject_template', term: 'coupon')).last
+          expect(pm.posts.count).to eq(1)
         }.to change { Topic.where(subtype: TopicSubtype.system_message).count }.by(1)
       end
     end

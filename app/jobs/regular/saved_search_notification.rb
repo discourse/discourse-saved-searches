@@ -11,23 +11,30 @@ module Jobs
 
         since = Jobs::ScheduleSavedSearches::SEARCH_INTERVAL.ago
         min_post_id = user.custom_fields['saved_searches_min_post_id'].to_i
+        new_min_post_id = min_post_id
 
         if searches = (user.custom_fields['saved_searches'] || {})['searches']
           searches.each do |term|
-            search = Search.new("#{term} in:unseen after:#{since.strftime("%Y-%-m-%-d")} order:latest", guardian: Guardian.new(user))
+            search = Search.new(
+              "#{term} in:unseen after:#{since.strftime("%Y-%-m-%-d")} order:latest",
+              guardian: Guardian.new(user),
+              type_filter: 'topic'
+            )
+
             results = search.execute
+
             if results.posts.count > 0 && results.posts.first.id > min_post_id
-              posts = results.posts.reject { |post| post.user_id == user.id }
+              posts = results.posts.reject { |post| post.user_id == user.id || post.post_type != Post.types[:regular] }
               if posts.size > 0
                 results_notification(user, term, posts)
-                min_post_id = [min_post_id, posts.map(&:id).max].max
+                new_min_post_id = [new_min_post_id, posts.map(&:id).max].max
               end
             end
           end
         end
 
-        if min_post_id > user.custom_fields['saved_searches_min_post_id'].to_i
-          user.custom_fields['saved_searches_min_post_id'] = min_post_id
+        if new_min_post_id > user.custom_fields['saved_searches_min_post_id'].to_i
+          user.custom_fields['saved_searches_min_post_id'] = new_min_post_id
           user.save
         end
       end
@@ -35,7 +42,7 @@ module Jobs
 
     def results_notification(user, term, posts)
       if posts.size > 0
-        posts_raw = if posts.size < 3
+        posts_raw = if posts.size < 6
           posts.map(&:full_url).join("\n\n".freeze)
         else
           posts.map do |post|
@@ -48,7 +55,7 @@ module Jobs
         end
 
         # Find existing topic for this search term
-        if tcf = TopicCustomField.where(name: custom_field_name(user), value: term).first
+        if tcf = TopicCustomField.joins(:topic).where(name: custom_field_name(user), value: term).last
           topic = tcf.topic
           PostCreator.create!(Discourse.system_user,
             topic_id: topic.id,
