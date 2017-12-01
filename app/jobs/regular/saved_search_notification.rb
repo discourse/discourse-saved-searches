@@ -15,8 +15,14 @@ module Jobs
 
         if searches = (user.custom_fields['saved_searches'] || {})['searches']
           searches.each do |term|
-            search = Search.new("#{term} in:unseen after:#{since.strftime("%Y-%-m-%-d")} order:latest", guardian: Guardian.new(user))
+            search = Search.new(
+              "#{term} in:unseen after:#{since.strftime("%Y-%-m-%-d")} order:latest",
+              guardian: Guardian.new(user),
+              type_filter: 'topic'
+            )
+
             results = search.execute
+
             if results.posts.count > 0 && results.posts.first.id > min_post_id
               posts = results.posts.reject { |post| post.user_id == user.id || post.post_type != Post.types[:regular] }
               if posts.size > 0
