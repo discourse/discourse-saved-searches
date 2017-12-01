@@ -11,6 +11,7 @@ module Jobs
 
         since = Jobs::ScheduleSavedSearches::SEARCH_INTERVAL.ago
         min_post_id = user.custom_fields['saved_searches_min_post_id'].to_i
+        new_min_post_id = min_post_id
 
         if searches = (user.custom_fields['saved_searches'] || {})['searches']
           searches.each do |term|
@@ -20,14 +21,14 @@ module Jobs
               posts = results.posts.reject { |post| post.user_id == user.id || post.post_type != Post.types[:regular] }
               if posts.size > 0
                 results_notification(user, term, posts)
-                min_post_id = [min_post_id, posts.map(&:id).max].max
+                new_min_post_id = [new_min_post_id, posts.map(&:id).max].max
               end
             end
           end
         end
 
-        if min_post_id > user.custom_fields['saved_searches_min_post_id'].to_i
-          user.custom_fields['saved_searches_min_post_id'] = min_post_id
+        if new_min_post_id > user.custom_fields['saved_searches_min_post_id'].to_i
+          user.custom_fields['saved_searches_min_post_id'] = new_min_post_id
           user.save
         end
       end
