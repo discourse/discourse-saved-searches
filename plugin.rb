@@ -55,5 +55,7 @@ after_initialize do
 end
 
 Discourse::Application.routes.append do
-  get '/u/:username/preferences/saved-searches' => 'users#preferences', constraints: { username: USERNAME_ROUTE_FORMAT }
+  # USERNAME_ROUTE_FORMAT is deprecated but we may need to support it for older installs
+  username_route_format = defined?(RouteFormat) ? RouteFormat.username : USERNAME_ROUTE_FORMAT
+  get '/u/:username/preferences/saved-searches' => 'users#preferences', constraints: { username: username_route_format }
 end
