@@ -2,8 +2,11 @@
 # about: Saved Searches Plugin
 # version: 0.1
 # authors: Neil Lalonde
+# url: https://github.com/discourse/discourse-saved-searches
 
 enabled_site_setting :saved_searches_enabled
+
+register_asset 'stylesheets/saved-searches.scss'
 
 after_initialize do
 
@@ -68,5 +71,7 @@ after_initialize do
 end
 
 Discourse::Application.routes.append do
-  get '/u/:username/preferences/saved-searches' => 'users#preferences', constraints: { username: USERNAME_ROUTE_FORMAT }
+  # USERNAME_ROUTE_FORMAT is deprecated but we may need to support it for older installs
+  username_route_format = defined?(RouteFormat) ? RouteFormat.username : USERNAME_ROUTE_FORMAT
+  get '/u/:username/preferences/saved-searches' => 'users#preferences', constraints: { username: username_route_format }
 end
