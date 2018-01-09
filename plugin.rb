@@ -2,6 +2,7 @@
 # about: Saved Searches Plugin
 # version: 0.1
 # authors: Neil Lalonde
+# url: https://github.com/discourse/discourse-saved-searches
 
 enabled_site_setting :saved_searches_enabled
 
