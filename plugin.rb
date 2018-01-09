@@ -6,6 +6,8 @@
 
 enabled_site_setting :saved_searches_enabled
 
+register_asset 'stylesheets/saved-searches.scss'
+
 after_initialize do
 
   plugin = self
