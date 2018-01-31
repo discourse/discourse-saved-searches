@@ -8,12 +8,12 @@
 it:
   site_settings:
     saved_searches_enabled: "Consenti agli utenti di salvare le ricerche"
-    saved_searches_min_trust_level: "Livello di esperienza minimo per salvare le ricerche"
+    saved_searches_min_trust_level: "Livello di esperienza minimo per poter salvare le ricerche"
   system_messages:
     saved_searches_notification:
       title: "Nuovi Risultati di Ricerca"
       subject_template: "Nuovi Risultati di Ricerca: %{term}"
-      post_link_text: "[**%{title}**, messaggio #%{post_number}](%{url})"
+      post_link_text: "[**%{title}**, messaggio n°%{post_number}](%{url})"
       text_body_template: |
         Sono stati trovati nuovi risultati per **%{term}**!
 

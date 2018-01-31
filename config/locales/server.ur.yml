@@ -5,4 +5,16 @@
 # To work with us on translations, join this project:
 # https://www.transifex.com/projects/p/discourse-org/
 
-ur: {}
+ur:
+  site_settings:
+    saved_searches_enabled: "صارفین کو محفوظ سرچز رکھنے کی اجازت دیں"
+    saved_searches_min_trust_level: "محفوظ سرچز رکھنے کیلئے کم از کم ٹرسٹ لَیول"
+  system_messages:
+    saved_searches_notification:
+      title: "سرچ کے نئے نتائج"
+      subject_template: "سرچ کے نئے نتائج: %{term}"
+      post_link_text: "[**%{title}**، پوسٹ #%{post_number}](%{url})"
+      text_body_template: |
+        **%{term}** کیلئے نئے نتائج پائے گئے ہیں!
+
+        %{posts}

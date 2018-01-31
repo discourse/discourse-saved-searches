@@ -5,4 +5,16 @@
 # To work with us on translations, join this project:
 # https://www.transifex.com/projects/p/discourse-org/
 
-sk: {}
+sk:
+  site_settings:
+    saved_searches_enabled: "Dovoliť používateľom uložiť vyhľadania"
+    saved_searches_min_trust_level: "Minimálna úroveň dôvery na ukladanie vyhľadávania"
+  system_messages:
+    saved_searches_notification:
+      title: "Nové výsledky vyhľadávania "
+      subject_template: "Nové výsledky vyhľadávania: %{term}"
+      text_body_template: |
+        Nájdené nové výsledky pre ** %{term}
+        ** !
+
+        %{posts}

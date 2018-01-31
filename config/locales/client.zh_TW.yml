@@ -5,4 +5,8 @@
 # To work with us on translations, join this project:
 # https://www.transifex.com/projects/p/discourse-org/
 
-zh_TW: {}
+zh_TW:
+  js:
+    saved_searches:
+      title: "已儲存的搜尋"
+      description: "儲存最多 %{max} 個搜尋並接收關於新搜尋結果的通知。"

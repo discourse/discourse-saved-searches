@@ -5,4 +5,8 @@
 # To work with us on translations, join this project:
 # https://www.transifex.com/projects/p/discourse-org/
 
-es: {}
+es:
+  js:
+    saved_searches:
+      title: "Búsquedas guardadas"
+      description: "Guarda hasta %{max} búsquedas y recibe notificaciones cuando haya nuevos resultados."
