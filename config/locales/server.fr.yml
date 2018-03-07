@@ -5,4 +5,16 @@
 # To work with us on translations, join this project:
 # https://www.transifex.com/projects/p/discourse-org/
 
-fr: {}
+fr:
+  site_settings:
+    saved_searches_enabled: "Permettre aux utiliateurs de sauvegarder des recherches"
+    saved_searches_min_trust_level: "Niveau de confiance minimum requis pour sauvegarder des recherches"
+  system_messages:
+    saved_searches_notification:
+      title: "Nouveaux résultats de recherche"
+      subject_template: "Nouveaux résultats de recherche : %{term}"
+      post_link_text: "[**%{title}**, message #%{post_number}](%{url})"
+      text_body_template: |
+          De nouveaux résultats ont été trouvés pour **%{term}**!
+
+          %{posts}

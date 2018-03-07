@@ -15,6 +15,6 @@ ur:
       subject_template: "سرچ کے نئے نتائج: %{term}"
       post_link_text: "[**%{title}**، پوسٹ #%{post_number}](%{url})"
       text_body_template: |
-        **%{term}** کیلئے نئے نتائج پائے گئے ہیں!
+          **%{term}** کیلئے نئے نتائج پائے گئے ہیں!
 
-        %{posts}
+          %{posts}

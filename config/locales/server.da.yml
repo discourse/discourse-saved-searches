@@ -14,6 +14,6 @@ da:
       subject_template: "Nye søgeresultater: %{term}"
       post_link_text: "[**%{title}**, indlæg #%{post_number}](%{url})"
       text_body_template: |
-        Nye søgeresultater er fundet vedr. **%{term}**!
+          Nye søgeresultater er fundet vedr. **%{term}**!
 
-        %{posts}
+          %{posts}
