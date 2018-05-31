@@ -15,6 +15,6 @@ he:
       subject_template: "תוצאות חיפוש חדשות: %{term}"
       post_link_text: "[**%{title}**, רשומה מס׳ %{post_number}](%{url})"
       text_body_template: |
-          נמצאו תוצאות חדשות לחיפוש **%{term}**!
+        נמצאו תוצאות חדשות לחיפוש **%{term}**!
 
-          %{posts}
+        %{posts}

@@ -15,7 +15,7 @@ sk:
       subject_template: "Nové výsledky vyhľadávania: %{term}"
       post_link_text: "[**%{title}**, príspevok #%{post_number}](%{url})"
       text_body_template: |
-          Nájdené nové výsledky pre ** %{term}
-          ** !
+        Nájdené nové výsledky pre ** %{term}
+        ** !
 
-          %{posts}
+        %{posts}

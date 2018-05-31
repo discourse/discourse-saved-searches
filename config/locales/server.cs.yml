@@ -15,6 +15,6 @@ cs:
       subject_template: "Nové výsledky hledání: %{term}"
       post_link_text: "[**%{title}**, příspěvek #%{post_number}](%{url})"
       text_body_template: |
-          Nově nalezené výsledky pro **%{term}**!
+        Nově nalezené výsledky pro **%{term}**!
 
-          %{posts}
+        %{posts}

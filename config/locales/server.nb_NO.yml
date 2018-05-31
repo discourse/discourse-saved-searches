@@ -8,3 +8,13 @@
 nb_NO:
   site_settings:
     saved_searches_enabled: "Tillat brukere å ha lagrede søk"
+    saved_searches_min_trust_level: "Minste tillitsnivå for å kunne lagre søk"
+  system_messages:
+    saved_searches_notification:
+      title: "Nye Søkeresultater"
+      subject_template: "Nye Søkeresultater: %{term}"
+      post_link_text: "[**%{title}**, innlegg #%{post_number}](%{url})"
+      text_body_template: |
+        Nye treff er funnet i søket for **%{term}**!
+
+        %{posts}
