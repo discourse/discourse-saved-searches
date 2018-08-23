@@ -1,0 +1,20 @@
+# encoding: utf-8
+#
+# Never edit this file. It will be overwritten when translations are pulled from Transifex.
+#
+# To work with us on translations, join this project:
+# https://www.transifex.com/projects/p/discourse-org/
+
+sw:
+  site_settings:
+    saved_searches_enabled: "Ruhusu watumiaji kuhifadhi vitu walivyovitafuta"
+    saved_searches_min_trust_level: "Kiwango cha chini cha Uaminifu kuhifadhi utafiti"
+  system_messages:
+    saved_searches_notification:
+      title: "Matokeo Mapya"
+      subject_template: "Majibu Mapya ya Utafiti: %{term}"
+      post_link_text: "[**%{title}**, taarifa #%{post_number}](%{url})"
+      text_body_template: |
+        Majibu mapya yamepatikana kwa ****!%{term}**!
+
+        %{posts}

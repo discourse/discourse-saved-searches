@@ -5,8 +5,8 @@
 # To work with us on translations, join this project:
 # https://www.transifex.com/projects/p/discourse-org/
 
-fi:
+sw:
   js:
     saved_searches:
-      title: "Tallennetut haut"
-      description: "Voit tallentaa enintään%{max}hakua. Saat ilmoituksen uusista hakutuloksista."
+      title: "Utafiti Ulihifadhiwa"
+      description: "Hifadhi mpaka utafiti %{max} na pata taarifa kuhusiana na utafiti mpya."

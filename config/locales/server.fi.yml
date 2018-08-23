@@ -5,4 +5,16 @@
 # To work with us on translations, join this project:
 # https://www.transifex.com/projects/p/discourse-org/
 
-fi: {}
+fi:
+  site_settings:
+    saved_searches_enabled: "Salli käyttäjien tallentaa hakuja"
+    saved_searches_min_trust_level: "Vähimmäisluottamustaso, jolla voi tallentaa hakuja"
+  system_messages:
+    saved_searches_notification:
+      title: "Uusia halutuloksia"
+      subject_template: "Uusia hakutuloksia: %{term}"
+      post_link_text: "[**%{title}**, viesti #%{post_number}](%{url})"
+      text_body_template: |
+        Uusia tuloksia löytyi haulle **%{term}**!
+
+        %{posts}

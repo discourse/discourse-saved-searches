@@ -5,8 +5,8 @@
 # To work with us on translations, join this project:
 # https://www.transifex.com/projects/p/discourse-org/
 
-fi:
+hu:
   js:
     saved_searches:
-      title: "Tallennetut haut"
-      description: "Voit tallentaa enintään%{max}hakua. Saat ilmoituksen uusista hakutuloksista."
+      title: "Mentett keresések"
+      description: "Ments el legfeljebb %{max} keresést és értesülhetsz az új keresési eredményekről."
