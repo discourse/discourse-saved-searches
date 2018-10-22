@@ -8,26 +8,33 @@ acceptance("Saved Searches", {
 });
 
 test("Saved Search preferences", assert => {
-  server.put('/saved_searches', () => { // eslint-disable-line no-undef
-    return [ 200, { "Content-Type": "application/json" }, { success: 'OK' } ];
+  server.put("/saved_searches", () => {
+    // eslint-disable-line no-undef
+    return [200, { "Content-Type": "application/json" }, { success: "OK" }];
   });
 
   visit("/u/eviltrout/preferences");
 
   andThen(() => {
-    assert.ok(exists('.preferences-nav .saved-searches'), 'saved search section exists');
+    assert.ok(
+      exists(".preferences-nav .saved-searches"),
+      "saved search section exists"
+    );
   });
 
-  click('.preferences-nav .saved-searches a');
+  click(".preferences-nav .saved-searches a");
 
   andThen(() => {
-    assert.ok(exists('.saved-searches-controls input'), 'saved search inputs exist');
+    assert.ok(
+      exists(".saved-searches-controls input"),
+      "saved search inputs exist"
+    );
   });
 
-  fillIn('.saved-searches-controls:first input', 'ballista');
-  click('.save-user');
-  assert.ok(!exists('.saved-user'), "it hasn't been saved yet");
+  fillIn(".saved-searches-controls:first input", "ballista");
+  click(".save-user");
+  assert.ok(!exists(".saved-user"), "it hasn't been saved yet");
   andThen(() => {
-    assert.ok(exists('.saved-user'), 'it displays the saved message');
+    assert.ok(exists(".saved-user"), "it displays the saved message");
   });
 });
