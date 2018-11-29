@@ -5,4 +5,16 @@
 # To work with us on translations, join this project:
 # https://www.transifex.com/projects/p/discourse-org/
 
-zh_CN: {}
+zh_CN:
+  site_settings:
+    saved_searches_enabled: "允许用户保存搜索"
+    saved_searches_min_trust_level: "保存搜索的最低信任等级"
+  system_messages:
+    saved_searches_notification:
+      title: "新搜索结果"
+      subject_template: "新搜索结果：%{term}"
+      post_link_text: "[**%{title}**，帖子#%{post_number}](%{url})"
+      text_body_template: |
+        已找到**%{term}**！结果
+
+        %{posts}

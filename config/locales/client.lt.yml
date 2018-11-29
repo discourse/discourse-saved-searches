@@ -5,8 +5,7 @@
 # To work with us on translations, join this project:
 # https://www.transifex.com/projects/p/discourse-org/
 
-zh_CN:
+lt:
   js:
     saved_searches:
-      title: "已储存的搜索"
-      description: "保存最多 %{max} 个搜索，在有新结果时接收通知。"
+      title: "Išsaugotos paieškos"
