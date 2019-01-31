@@ -5,4 +5,16 @@
 # To work with us on translations, join this project:
 # https://www.transifex.com/projects/p/discourse-org/
 
-nl: {}
+nl:
+  site_settings:
+    saved_searches_enabled: "Toestaan dat gebruikers opgeslagen zoek termen hebben"
+    saved_searches_min_trust_level: "Minimale vertrouwensniveau om zoek termen op te slaan"
+  system_messages:
+    saved_searches_notification:
+      title: "Nieuwe zoekresultaten"
+      subject_template: "Nieuwe zoekresultaten: %{term}"
+      post_link_text: "[**%{title}**, bericht #%{post_number}](%{url})"
+      text_body_template: |
+        Nieuwe zoekresultaten zijn gevonden voor **%{term}**!
+
+        %{posts}
