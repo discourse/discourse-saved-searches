@@ -5,8 +5,8 @@
 # To work with us on translations, join this project:
 # https://www.transifex.com/projects/p/discourse-org/
 
-pt_BR:
+hy:
   js:
     saved_searches:
-      title: "Pesquisas Salvas"
-      description: "Salve até %{max} pesquisas e receba notificações sobre novos resultados de pesquisa."
+      title: "Պահպանված Որոնումներ"
+      description: "Պահպանեք մինչև %{max} որոնում և ստացեք ծանուցումներ որոնումների նոր արդյունքների մասին:"

@@ -1,0 +1,20 @@
+# encoding: utf-8
+#
+# Never edit this file. It will be overwritten when translations are pulled from Transifex.
+#
+# To work with us on translations, join this project:
+# https://www.transifex.com/projects/p/discourse-org/
+
+hy:
+  site_settings:
+    saved_searches_enabled: "Թույլատրել օգտատերերին ունենալ պահպանված որոնումներ"
+    saved_searches_min_trust_level: "Պահպանված որոնումներ ունենալու համար նվազագույն վստահության մակարդակը"
+  system_messages:
+    saved_searches_notification:
+      title: "Որոնման Նոր Արդյունքներ"
+      subject_template: "Որոնման Նոր Արդյունքներ՝ %{term}"
+      post_link_text: "[**%{title}**, գրառում #%{post_number}](%{url})"
+      text_body_template: |
+        Գտնվել են նոր արդյունքներ **%{term}** -ի համար!
+
+        %{posts}

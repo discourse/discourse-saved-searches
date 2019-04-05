@@ -7,13 +7,13 @@
 
 pt_BR:
   site_settings:
-    saved_searches_enabled: "Permitir que os usuários tenham pesquisas salvas"
+    saved_searches_enabled: "Permitir que usuários tenham pesquisas salvas"
     saved_searches_min_trust_level: "Nível de confiança mínimo para ter pesquisas salvas"
   system_messages:
     saved_searches_notification:
       title: "Novos Resultados de Pesquisa"
-      subject_template: "Novos Resultados de  Pesquisa: %{term}"
-      post_link_text: "[**%{title}**, publicação #%{post_number}](%{url})"
+      subject_template: "Novos Resultados de Pesquisa: %{term}"
+      post_link_text: "[**%{title}**, postagem #%{post_number}](%{url})"
       text_body_template: |
         Novos resultados foram encontrados para **%{term}**!
 
