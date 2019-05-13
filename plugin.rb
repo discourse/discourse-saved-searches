@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 # name: discourse-saved-searches
 # about: Saved Searches Plugin
 # version: 0.1
