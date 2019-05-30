@@ -9,4 +9,4 @@ es:
   js:
     saved_searches:
       title: "Búsquedas guardadas"
-      description: "Guarda hasta %{max} búsquedas y recibe notificaciones cuando haya nuevos resultados."
+      description: "Guarda hasta %{max} búsquedas y recibe notificaciones sobre nuevos resultados de búsqueda."

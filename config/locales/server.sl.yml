@@ -8,3 +8,6 @@
 sl:
   site_settings:
     saved_searches_enabled: "Dovolite uporabnikom, da imajo shranjena iskanja"
+  system_messages:
+    saved_searches_notification:
+      title: "Novi rezultati iskanja"
