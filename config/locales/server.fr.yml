@@ -15,6 +15,6 @@ fr:
       subject_template: "Nouveaux résultats de recherche : %{term}"
       post_link_text: "[**%{title}**, message #%{post_number}](%{url})"
       text_body_template: |
-        De nouveaux résultats ont été trouvés pour **%{term}**!
+        De nouveaux résultats ont été trouvés pour **%{term}** !
 
         %{posts}
