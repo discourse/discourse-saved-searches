@@ -8,6 +8,7 @@ acceptance("Saved Searches", {
 });
 
 test("Saved Search preferences", assert => {
+  /* global server */
   server.put("/saved_searches", () => {
     // eslint-disable-line no-undef
     return [200, { "Content-Type": "application/json" }, { success: "OK" }];
