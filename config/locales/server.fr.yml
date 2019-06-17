@@ -12,7 +12,7 @@ fr:
   system_messages:
     saved_searches_notification:
       title: "Nouveaux résultats de recherche"
-      subject_template: "Nouveaux résultats de recherche : %{term}"
+      subject_template: "Nouveaux résultats de recherche : %{term}"
       post_link_text: "[**%{title}**, message #%{post_number}](%{url})"
       text_body_template: |
         De nouveaux résultats ont été trouvés pour **%{term}** !
