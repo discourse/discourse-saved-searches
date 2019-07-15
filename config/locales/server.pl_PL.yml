@@ -5,4 +5,16 @@
 # To work with us on translations, join this project:
 # https://www.transifex.com/projects/p/discourse-org/
 
-pl_PL: {}
+pl_PL:
+  site_settings:
+    saved_searches_enabled: "Pozwól użytkownikom na zapisywanie wyszukań"
+    saved_searches_min_trust_level: "Minimalny poziom zaufania pozwalający na zapisywanie wyszukiwania"
+  system_messages:
+    saved_searches_notification:
+      title: "Nowe wyniki wyszukiwania"
+      subject_template: "Nowe wyniki wyszukiwania %{term}"
+      post_link_text: "[**%{title}**, post #%{post_number}](%{url})"
+      text_body_template: |
+        Dla zapytania **%{term}** zostały znalezione nowe wyniki!
+
+        %{posts}

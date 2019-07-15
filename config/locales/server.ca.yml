@@ -5,4 +5,16 @@
 # To work with us on translations, join this project:
 # https://www.transifex.com/projects/p/discourse-org/
 
-ca: {}
+ca:
+  site_settings:
+    saved_searches_enabled: "Permet que els usuaris tinguin cerques desades"
+    saved_searches_min_trust_level: "Nivell mínim de confiança per a poder desar cerques."
+  system_messages:
+    saved_searches_notification:
+      title: "Nous resultats de la cerca"
+      subject_template: "Nous resultats de la cerca: %{term}"
+      post_link_text: "[** %{title} **, publicació # %{post_number}] (%{url})"
+      text_body_template: |
+        S'han trobat resultats nous per a **%{term}**!
+
+        %{posts}

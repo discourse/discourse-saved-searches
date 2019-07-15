@@ -5,8 +5,4 @@
 # To work with us on translations, join this project:
 # https://www.transifex.com/projects/p/discourse-org/
 
-ca:
-  js:
-    saved_searches:
-      title: "Cerques desades"
-      description: "Deseu fins a %{max} cerques i rebeu notificacions sobre nous resultats de cerca."
+be: {}
