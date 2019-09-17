@@ -3,7 +3,7 @@
 require_dependency 'system_message'
 
 module Jobs
-  class SavedSearchNotification < Jobs::Base
+  class SavedSearchNotification < ::Jobs::Base
 
     sidekiq_options queue: 'low'
 

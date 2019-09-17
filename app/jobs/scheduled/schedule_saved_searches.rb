@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 module Jobs
-  class ScheduleSavedSearches < Jobs::Scheduled
+  class ScheduleSavedSearches < ::Jobs::Scheduled
 
     SEARCH_INTERVAL = 1.day
 
