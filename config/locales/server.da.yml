@@ -8,6 +8,7 @@
 da:
   site_settings:
     saved_searches_enabled: "Tillad brugere at have gemte søgninger"
+    saved_searches_min_trust_level: "Minimum tillidsniveau for at have gemte søgninger"
   system_messages:
     saved_searches_notification:
       title: "Nye søgeresultater"
