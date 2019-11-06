@@ -5,4 +5,16 @@
 # To work with us on translations, join this project:
 # https://www.transifex.com/projects/p/discourse-org/
 
-uk: {}
+uk:
+  site_settings:
+    saved_searches_enabled: "Дозволити користувачам зберігати пошук"
+    saved_searches_min_trust_level: "Мінімальний рівень довіри для збережених пошукових запитів"
+  system_messages:
+    saved_searches_notification:
+      title: "Нові результати пошуку"
+      subject_template: "Нові результати пошуку: %{term}"
+      post_link_text: "[**%{title}**, допис #%{post_number}](%{url})"
+      text_body_template: |
+        Знайдено нові результати для **%{term}**!
+
+        %{posts}
