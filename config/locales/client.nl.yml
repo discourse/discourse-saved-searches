@@ -9,4 +9,4 @@ nl:
   js:
     saved_searches:
       title: "Opgeslagen zoektermen"
-      description: "Sla tot %{max} zoektermen op en ontvang notificaties over nieuwe zoekresultaten."
+      description: "Sla tot %{max} zoektermen op en ontvang meldingen over nieuwe zoekresultaten."
