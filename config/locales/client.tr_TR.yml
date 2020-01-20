@@ -5,4 +5,8 @@
 # To work with us on translations, join this project:
 # https://www.transifex.com/projects/p/discourse-org/
 
-tr_TR: {}
+tr_TR:
+  js:
+    saved_searches:
+      title: "Kaydedilmiş Aramalar"
+      description: "%{max} aramaya kadar kaydedin ve yeni arama sonuçları hakkında bildirim alın."

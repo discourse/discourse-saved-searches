@@ -5,4 +5,16 @@
 # To work with us on translations, join this project:
 # https://www.transifex.com/projects/p/discourse-org/
 
-sv: {}
+sv:
+  site_settings:
+    saved_searches_enabled: "Låt användare ha sparade sökningar"
+    saved_searches_min_trust_level: "Lägsta förtroendenivå för att ha sparade sökningar"
+  system_messages:
+    saved_searches_notification:
+      title: "Nya sökresultat"
+      subject_template: "Nya sökresultat: %{term}"
+      post_link_text: "[**%{title}**, inlägg nr %{post_number}](%{url})"
+      text_body_template: |
+        Nya resultat har hittats för **%{term}**!
+
+        %{posts}
