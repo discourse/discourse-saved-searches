@@ -52,6 +52,20 @@ describe Jobs::SavedSearchNotification do
             described_class.new.execute(user_id: user.id)
           }.to_not change { Topic.count }
         end
+
+        it "doesn't notify for suspended users" do
+          user.update!(suspended_at: 1.hour.ago, suspended_till: 20.years.from_now)
+          expect {
+            described_class.new.execute(user_id: user.id)
+          }.to_not change { Topic.count }
+        end
+
+        it "doesn't notify for deactivated users" do
+          user.deactivate(Fabricate(:admin))
+          expect {
+            described_class.new.execute(user_id: user.id)
+          }.to_not change { Topic.count }
+        end
       end
 
       it "doesn't create a PM if results are too old" do

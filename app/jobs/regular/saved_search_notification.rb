@@ -10,6 +10,7 @@ module Jobs
     def execute(args)
       if user = User.where(id: args[:user_id]).first
         return if !user.staff? && user.trust_level < SiteSetting.saved_searches_min_trust_level
+        return if !user.active? || user.suspended?
 
         since = Jobs::ScheduleSavedSearches::SEARCH_INTERVAL.ago
         min_post_id = user.custom_fields['saved_searches_min_post_id'].to_i
