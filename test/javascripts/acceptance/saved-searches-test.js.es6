@@ -33,9 +33,9 @@ test("Saved Search preferences", assert => {
   });
 
   fillIn(".saved-searches-controls:first input", "ballista");
-  click(".save-user");
-  assert.ok(!exists(".saved-user"), "it hasn't been saved yet");
+  click(".save-changes");
+  assert.ok(!exists(".saved"), "it hasn't been saved yet");
   andThen(() => {
-    assert.ok(exists(".saved-user"), "it displays the saved message");
+    assert.ok(exists(".saved"), "it displays the saved message");
   });
 });
