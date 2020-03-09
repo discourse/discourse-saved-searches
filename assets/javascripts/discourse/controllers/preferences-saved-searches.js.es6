@@ -18,13 +18,9 @@ export default Ember.Controller.extend({
     return records;
   },
 
-  saveButtonText: function() {
-    return this.get("saving") ? I18n.t("saving") : I18n.t("save");
-  }.property("saving"),
-
   actions: {
     save() {
-      this.set("saved", false);
+      this.setProperties({ saved: false, isSaving: true });
 
       const searches = this.get("searchStrings")
         .map(s => {
@@ -41,7 +37,7 @@ export default Ember.Controller.extend({
           searches: searches
         }
       }).then((result, error) => {
-        this.set("saved", true);
+        this.setProperties({ saved: true, isSaving: false });
         if (error) {
           popupAjaxError(error);
         }
