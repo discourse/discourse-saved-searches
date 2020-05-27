@@ -9,4 +9,4 @@ fr:
   js:
     saved_searches:
       title: "Recherches enregistrées"
-      description: "Enregistrer jusqu'à %{max} recherches et recevoir des notifications lors de nouveaux résultats."
+      description: "Enregistrez jusqu'à %{max} recherches et recevez des notifications lors de nouveaux résultats."
