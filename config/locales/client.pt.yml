@@ -9,4 +9,4 @@ pt:
   js:
     saved_searches:
       title: "Pesquisas Guardadas"
-      description: "Guarda um máximo de %{max} pesquisas e recebe notificações sobre o resultado das pesquisas."
+      description: "Guarde até %{max} pesquisas e recebe notificações sobre o resultado das pesquisas."
