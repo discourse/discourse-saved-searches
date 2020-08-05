@@ -1,20 +1,19 @@
-# encoding: utf-8
-#
-# Never edit this file. It will be overwritten when translations are pulled from Transifex.
+# WARNING: Never edit this file.
+# It will be overwritten when translations are pulled from Crowdin.
 #
 # To work with us on translations, join this project:
-# https://www.transifex.com/projects/p/discourse-org/
+# https://translate.discourse.org/
 
 ru:
   site_settings:
     saved_searches_enabled: "Разрешить пользователям сохранять поисковые запросы"
-    saved_searches_min_trust_level: "Минимальный уровень доверия чтобы иметь разрешение на сохранение результатов поиска"
+    saved_searches_min_trust_level: "Минимальный уровень доверия для сохранения результатов поиска"
   system_messages:
     saved_searches_notification:
-      title: "Новый поисковый результат"
-      subject_template: "Новых поисковых результатов: %{term}"
+      title: "Новый результат поиска"
+      subject_template: "Новый результат поиска: %{term}"
       post_link_text: "[**%{title}**, сообщение #%{post_number}](%{url})"
       text_body_template: |
-        Новые поисковые результаты найдены по условию **%{term}**
+        Новые результаты поиска получены по условию **%{term}**
 
         %{posts}

@@ -1,20 +1,19 @@
-# encoding: utf-8
-#
-# Never edit this file. It will be overwritten when translations are pulled from Transifex.
+# WARNING: Never edit this file.
+# It will be overwritten when translations are pulled from Crowdin.
 #
 # To work with us on translations, join this project:
-# https://www.transifex.com/projects/p/discourse-org/
+# https://translate.discourse.org/
 
 he:
   site_settings:
     saved_searches_enabled: "לאפשר למשתמשים לשמור חיפושים"
-    saved_searches_min_trust_level: "רמת האמון המזערית לקבלת האפשרות לשמירת חיפושים"
+    saved_searches_min_trust_level: "דרגת האמון המזערית לקבלת האפשרות לשמירת חיפושים"
   system_messages:
     saved_searches_notification:
       title: "תוצאות חיפוש חדשות"
       subject_template: "תוצאות חיפוש חדשות: %{term}"
       post_link_text: "[**%{title}**, רשומה מס׳ %{post_number}](%{url})"
       text_body_template: |
-        נמצאו תוצאות חדשות לחיפוש **%{term}**!
+        נמצאו תוצאות חדשות לחיפוש אחר **%{term}**!
 
         %{posts}
