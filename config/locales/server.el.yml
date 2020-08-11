@@ -4,4 +4,16 @@
 # To work with us on translations, join this project:
 # https://translate.discourse.org/
 
-el: 
+el:
+  site_settings:
+    saved_searches_enabled: "Να επιτρέπεται στους χρήστες να έχουν αποθηκεύσει αναζητήσεις"
+    saved_searches_min_trust_level: "Ελάχιστο επίπεδο εμπιστοσύνης για αποθήκευση αναζητήσεων"
+  system_messages:
+    saved_searches_notification:
+      title: "Νέα αποτελέσματα αναζήτησης"
+      subject_template: "Νέα αποτελέσματα αναζήτησης για: %{term}"
+      post_link_text: "[**%{title}**, ανάρτηση #%{post_number}] (%{url})"
+      text_body_template: |
+        Βρέθηκαν νέα αποτελέσματα για το **%{term}**!
+
+        %{posts}

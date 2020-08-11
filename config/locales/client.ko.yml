@@ -1,12 +1,7 @@
-# encoding: utf-8
-#
-# Never edit this file. It will be overwritten when translations are pulled from Transifex.
+# WARNING: Never edit this file.
+# It will be overwritten when translations are pulled from Crowdin.
 #
 # To work with us on translations, join this project:
-# https://www.transifex.com/projects/p/discourse-org/
+# https://translate.discourse.org/
 
-ko:
-  js:
-    saved_searches:
-      title: "저장된 검색"
-      description: "%{max} 검색 결과를 저장하고 새 검색 결과에 대한 알림을받습니다."
+ko: 
