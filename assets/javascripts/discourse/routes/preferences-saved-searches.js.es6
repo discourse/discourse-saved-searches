@@ -7,5 +7,5 @@ export default RestrictedUserRoute.extend({
     }
 
     controller.setProperties({ model: user });
-  }
+  },
 });

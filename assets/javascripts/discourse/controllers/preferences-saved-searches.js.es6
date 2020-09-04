@@ -9,7 +9,7 @@ export default Ember.Controller.extend({
   @discourseComputed("model.saved_searches")
   searchStrings() {
     let records = [];
-    (this.get("model.saved_searches") || []).forEach(s => {
+    (this.get("model.saved_searches") || []).forEach((s) => {
       records.push({ query: s });
     });
     while (records.length < this.get("maxSavedSearches")) {
@@ -23,7 +23,7 @@ export default Ember.Controller.extend({
       this.setProperties({ saved: false, isSaving: true });
 
       const searches = this.get("searchStrings")
-        .map(s => {
+        .map((s) => {
           return s.query ? s.query : null;
         })
         .compact();
@@ -34,14 +34,14 @@ export default Ember.Controller.extend({
         type: "PUT",
         dataType: "json",
         data: {
-          searches: searches
-        }
+          searches: searches,
+        },
       }).then((result, error) => {
         this.setProperties({ saved: true, isSaving: false });
         if (error) {
           popupAjaxError(error);
         }
       });
-    }
-  }
+    },
+  },
 });
