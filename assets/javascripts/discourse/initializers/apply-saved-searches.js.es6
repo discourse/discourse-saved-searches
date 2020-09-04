@@ -10,7 +10,7 @@ function initializeSavedSearches(api) {
         (trust_level >= Discourse.SiteSettings.saved_searches_min_trust_level ||
           staff)
       );
-    }
+    },
   });
 }
 
@@ -19,5 +19,5 @@ export default {
 
   initialize() {
     withPluginApi("0.8.9", initializeSavedSearches);
-  }
+  },
 };

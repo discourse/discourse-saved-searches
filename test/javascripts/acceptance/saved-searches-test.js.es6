@@ -3,11 +3,11 @@ acceptance("Saved Searches", {
   loggedIn: true,
   settings: {
     saved_searches_enabled: true,
-    saved_searches_min_trust_level: 0
-  }
+    saved_searches_min_trust_level: 0,
+  },
 });
 
-test("Saved Search preferences", assert => {
+test("Saved Search preferences", (assert) => {
   /* global server */
   server.put("/saved_searches", () => {
     // eslint-disable-line no-undef
