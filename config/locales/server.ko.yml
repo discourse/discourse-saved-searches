@@ -4,4 +4,12 @@
 # To work with us on translations, join this project:
 # https://translate.discourse.org/
 
-ko: 
+ko:
+  site_settings:
+    saved_searches_enabled: "사용자가 검색을 저장하도록 허용"
+    saved_searches_min_trust_level: "검색을 저장 한 최소 신뢰 수준"
+  system_messages:
+    saved_searches_notification:
+      title: "새로운 검색 결과"
+      subject_template: "새로운 검색 결과 : %{term}"
+      post_link_text: "[** %{title} **, 게시물 # %{post_number}] (%{url})"
