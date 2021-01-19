@@ -4,4 +4,16 @@
 # To work with us on translations, join this project:
 # https://translate.discourse.org/
 
-zh_TW: 
+zh_TW:
+  site_settings:
+    saved_searches_enabled: "Allow users to have saved searches"
+    saved_searches_min_trust_level: "Minimum trust level to have saved searches"
+  system_messages:
+    saved_searches_notification:
+      title: "New Search Results"
+      subject_template: "New Search Results: %{term}"
+      post_link_text: "[**%{title}**, post #%{post_number}](%{url})"
+      text_body_template: |
+        New results have been found for **%{term}**!
+
+        %{posts}

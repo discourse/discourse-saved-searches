@@ -8,3 +8,4 @@ et:
   js:
     saved_searches:
       title: "Salvestatud otsingud"
+      description: "Save up to %{max} searches and receive notifications about new search results."

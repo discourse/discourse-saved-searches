@@ -13,3 +13,7 @@ ko:
       title: "새로운 검색 결과"
       subject_template: "새로운 검색 결과 : %{term}"
       post_link_text: "[** %{title} **, 게시물 # %{post_number}] (%{url})"
+      text_body_template: |
+        New results have been found for **%{term}**!
+
+        %{posts}

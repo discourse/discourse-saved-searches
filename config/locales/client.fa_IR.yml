@@ -8,3 +8,4 @@ fa_IR:
   js:
     saved_searches:
       title: "جستجوهای ذخیره شده"
+      description: "Save up to %{max} searches and receive notifications about new search results."

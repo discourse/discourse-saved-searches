@@ -10,6 +10,9 @@ vi:
     saved_searches_min_trust_level: "Mức tin cậy tối thiểu để có thể lưu tìm kiếm"
   system_messages:
     saved_searches_notification:
+      title: "New Search Results"
+      subject_template: "New Search Results: %{term}"
+      post_link_text: "[**%{title}**, post #%{post_number}](%{url})"
       text_body_template: |
         Kết quả mới đã được tìm thấy cho **%{term}**!
 

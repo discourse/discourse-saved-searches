@@ -7,6 +7,13 @@
 et:
   site_settings:
     saved_searches_enabled: "Luba kasutajatel otsinguid salvestada"
+    saved_searches_min_trust_level: "Minimum trust level to have saved searches"
   system_messages:
     saved_searches_notification:
       title: "Uus salvestatud tulemus"
+      subject_template: "New Search Results: %{term}"
+      post_link_text: "[**%{title}**, post #%{post_number}](%{url})"
+      text_body_template: |
+        New results have been found for **%{term}**!
+
+        %{posts}

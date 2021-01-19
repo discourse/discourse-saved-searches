@@ -8,3 +8,4 @@ lt:
   js:
     saved_searches:
       title: "Išsaugotos paieškos"
+      description: "Save up to %{max} searches and receive notifications about new search results."
