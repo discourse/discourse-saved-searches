@@ -1,5 +1,7 @@
 ## discourse-saved-searches
 
+https://meta.discourse.org/t/saved-searches-plugin/67901
+
 This plugin allows users to save searches and receive notifications when
 new posts match those searches.
 
