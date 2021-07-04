@@ -1,11 +1,11 @@
 <div class="control-group category-saved-searches">
-  <label class="control-label">{{i18n 'saved_searches.title'}}</label>
+  <label class="control-label">{{i18n "saved_searches.title"}}</label>
 
-  <label>{{i18n 'saved_searches.description' max=maxSavedSearches}}</label>
+  <label>{{i18n "saved_searches.description" max=maxSavedSearches}}</label>
 
-  <br/>
+  <br>
 
-  {{#each searchStrings as |search index| }}
+  {{#each searchStrings as |search| }}
     <div class="controls saved-searches-controls">
       {{input type="text" value=search.query class="input-xxlarge"}}
     </div>
