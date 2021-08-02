@@ -1,10 +1,7 @@
 # frozen_string_literal: true
 
-require_dependency 'system_message'
-
 module Jobs
   class SavedSearchNotification < ::Jobs::Base
-
     sidekiq_options queue: 'low'
 
     def execute(args)
@@ -59,11 +56,12 @@ module Jobs
 
         # Find existing topic for this search term
         if tcf = TopicCustomField.joins(:topic).where(name: custom_field_name(user), value: term).last
-          topic = tcf.topic
-          PostCreator.create!(Discourse.system_user,
-            topic_id: topic.id,
+          PostCreator.create!(
+            Discourse.system_user,
+            topic_id: tcf.topic_id,
             raw: I18n.t('system_messages.saved_searches_notification.text_body_template', posts: posts_raw, term: term),
-            skip_validations: true)
+            skip_validations: true
+          )
         else
           post = SystemMessage.create_from_system_user(user, :saved_searches_notification, posts: posts_raw, term: term)
           topic = post.topic
@@ -77,6 +75,5 @@ module Jobs
     def custom_field_name(user)
       "pm_saved_search_results_#{user.id}"
     end
-
   end
 end

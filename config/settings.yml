@@ -6,3 +6,6 @@ plugins:
     default: 1
     client: true
     enum: 'TrustLevelSetting'
+  max_saved_searches:
+    default: 5
+    client: true

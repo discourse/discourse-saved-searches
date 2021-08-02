@@ -1,15 +1,24 @@
 <div class="control-group category-saved-searches">
   <label class="control-label">{{i18n "saved_searches.title"}}</label>
 
-  <label>{{i18n "saved_searches.description" max=maxSavedSearches}}</label>
+  <p>{{i18n "saved_searches.description" count=siteSettings.max_saved_searches}}</p>
 
-  <br>
-
-  {{#each searchStrings as |search| }}
+  {{#each savedSearches as |savedSearch| }}
+    <div class="controls saved-searches-controls saved-search">
+      {{input type="text" value=savedSearch.query}}
+      {{d-button class="remove-saved-search" icon="trash-alt" title="saved_searches.remove" action=(action "removeSavedSearch" savedSearch)}}
+    </div>
+  {{else}}
     <div class="controls saved-searches-controls">
-      {{input type="text" value=search.query class="input-xxlarge"}}
+      {{i18n "saved_searches.none"}}
     </div>
   {{/each}}
+
+  {{#if canAddSavedSearch}}
+    <div class="controls saved-searches-controls">
+      {{d-button class="add-saved-search" icon="plus" label="saved_searches.add" action=(action "addSavedSearch")}}
+    </div>
+  {{/if}}
 </div>
 
 {{save-controls model=this action=(action "save") saved=saved}}

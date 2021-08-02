@@ -2,4 +2,7 @@ en:
   js:
     saved_searches:
       title: "Saved Searches"
-      description: "Save up to %{max} searches and receive notifications about new search results."
+      description: "Save up to %{count} searches and receive notifications about new search results."
+      none: "No saved search was defined."
+      add: "Add"
+      remove: "Remove"
