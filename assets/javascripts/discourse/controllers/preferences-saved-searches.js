@@ -33,7 +33,7 @@ export default Controller.extend({
       })
       .compact();
 
-    return ajax("/saved_searches", {
+    return ajax(`/u/${this.model.username}/preferences/saved-searches`, {
       type: "PUT",
       dataType: "json",
       data: { searches: savedSearches },
