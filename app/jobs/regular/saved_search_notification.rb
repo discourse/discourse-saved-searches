@@ -8,31 +8,53 @@ module Jobs
       user = User.find_by(id: args[:user_id])
       return if !user || !user.active? || user.suspended? || !user.guardian.can_use_saved_searches?
 
-      since = SavedSearches::SEARCH_INTERVAL.ago
-      min_post_id = user.custom_fields['saved_searches_min_post_id'].to_i
-
-      new_min_post_id = min_post_id
       user.saved_searches.each do |saved_search|
-        search = Search.new(
-          "#{saved_search.query} in:unseen after:#{since.strftime("%Y-%-m-%-d")} order:latest",
-          guardian: Guardian.new(user),
-          type_filter: 'topic'
-        )
+        # Store creation date of the last indexed post to use it as a starting
+        # point for future searches
+        saved_search.last_searched_at = DB.query_single(<<~SQL).first || Time.zone.now
+          SELECT created_at
+          FROM posts
+          WHERE id = (SELECT MAX(post_id) FROM post_search_data)
+        SQL
 
+        # Skip current saved search if no new posts match. This should be
+        # faster than a full search.
+        if saved_search.compiled_query
+          params = {
+            last_post_id: saved_search.last_post_id,
+            last_searched_at: saved_search.last_searched_at_was,
+            compiled_query: saved_search.compiled_query
+          }
+
+          result = DB.query_single(<<~SQL, params).first
+            SELECT 1
+            FROM posts
+            JOIN post_search_data ON posts.id = post_search_data.post_id
+            WHERE posts.id > :last_post_id AND
+                  posts.created_at > :last_searched_at AND
+                  post_search_data.search_data @@ :compiled_query::tsquery
+            LIMIT 1
+          SQL
+
+          next saved_search.save! if !result
+        end
+
+        # Perform a full search with all advanced filter and permission
+        search = Search.new(
+          "#{saved_search.query} min-post-id:#{saved_search.last_post_id} min-created-at:\"#{saved_search.last_searched_at_was}\" in:unseen order:latest",
+          guardian: user.guardian,
+          type_filter: 'topic',
+          saved_search: true
+        )
         results = search.execute
 
-        if results.posts.count > 0 && results.posts.first.id > min_post_id
-          posts = results.posts.reject { |post| post.user_id == user.id || post.post_type != Post.types[:regular] }
-          if posts.size > 0
-            results_notification(user, saved_search.query, posts)
-            new_min_post_id = [new_min_post_id, posts.map(&:id).max].max
-          end
+        posts = results.posts.reject { post.user_id == user.id || post.post_type != Post.types[:regular] }
+        if posts.size > 0
+          results_notification(user, saved_search.query, posts)
+          saved_search.last_post_id = [saved_search.last_post_id, posts.map(&:id).max].max
         end
-      end
 
-      if new_min_post_id > user.custom_fields['saved_searches_min_post_id'].to_i
-        user.custom_fields['saved_searches_min_post_id'] = new_min_post_id
-        user.save
+        saved_search.save!
       end
     end
 

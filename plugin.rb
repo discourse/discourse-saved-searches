@@ -13,8 +13,6 @@ register_asset 'stylesheets/saved-searches.scss'
 
 after_initialize do
   module ::SavedSearches
-    SEARCH_INTERVAL = 1.day
-
     class Engine < ::Rails::Engine
       engine_name 'saved_searches'
       isolate_namespace SavedSearches
@@ -31,6 +29,22 @@ after_initialize do
 
   Guardian.class_eval { prepend GuardianExtensions }
   User.class_eval { prepend UserExtensions }
+
+  Search.advanced_filter(/^min-post-id:(.*)$/i) do |posts, match|
+    if @opts[:saved_search] && id = match.to_i
+      posts.where("posts.id > ?", id)
+    else
+      posts
+    end
+  end
+
+  Search.advanced_filter(/^min-created-at:(.*)$/i) do |posts, match|
+    if @opts[:saved_search] && created_at = match.to_datetime
+      posts.where("posts.created_at > ?", created_at)
+    else
+      posts
+    end
+  end
 
   add_to_serializer(:user, :can_use_saved_searches, false) do
     true

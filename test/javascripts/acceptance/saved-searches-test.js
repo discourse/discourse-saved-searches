@@ -8,14 +8,10 @@ import { test } from "qunit";
 acceptance("Saved Searches", function (needs) {
   needs.user({ can_use_saved_searches: true });
 
-  needs.settings({
-    saved_searches_enabled: true,
-    saved_searches_min_trust_level: 0,
-    max_saved_searches: 5,
-  });
+  needs.settings({ max_saved_searches: 5 });
 
   needs.pretender((server) => {
-    server.put("/saved_searches", () => {
+    server.put("/u/eviltrout/preferences/saved-searches", () => {
       return [200, { "Content-Type": "application/json" }, { success: "OK" }];
     });
   });

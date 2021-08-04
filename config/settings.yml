@@ -1,10 +1,8 @@
 plugins:
   saved_searches_enabled:
     default: false
-    client: true
   saved_searches_min_trust_level:
     default: 1
-    client: true
     enum: 'TrustLevelSetting'
   max_saved_searches:
     default: 5
