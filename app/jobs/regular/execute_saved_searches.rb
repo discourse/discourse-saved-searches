@@ -9,6 +9,9 @@ module Jobs
       return if !user || !user.active? || user.suspended? || !user.guardian.can_use_saved_searches?
 
       user.saved_searches.each do |saved_search|
+        time_1 = Process.clock_gettime(Process::CLOCK_MONOTONIC)
+        time_2 = nil
+
         # Store creation date of the last indexed post to use it as a starting
         # point for future searches
         saved_search.last_searched_at = DB.query_single(<<~SQL).first || Time.zone.now
@@ -36,7 +39,12 @@ module Jobs
             LIMIT 1
           SQL
 
-          next saved_search.save! if !result
+          time_2 = Process.clock_gettime(Process::CLOCK_MONOTONIC)
+
+          if !result
+            Rails.logger.warn("SQL-only search for user #{user.id} and saved search #{saved_search.id} took #{time_2 - time_1}s. No results were found") if SiteSetting.debug_saved_searches?
+            next saved_search.save!
+          end
         end
 
         # Perform a full search with all advanced filter and permission
@@ -47,6 +55,10 @@ module Jobs
           saved_search: true
         )
         results = search.execute
+
+        time_3 = Process.clock_gettime(Process::CLOCK_MONOTONIC)
+
+        Rails.logger.warn("SQL-only search for user #{user.id} and saved search #{saved_search.id} took #{time_2 - time_1}s, full search took #{time_3 - time_2}. Found #{results.posts.size} posts") if SiteSetting.debug_saved_searches?
 
         posts = results.posts.reject { |post| post.user_id == user.id || post.post_type != Post.types[:regular] }
         if posts.size > 0

@@ -7,3 +7,6 @@ plugins:
   max_saved_searches:
     default: 5
     client: true
+  debug_saved_searches:
+    default: false
+    hidden: true
