@@ -6,3 +6,5 @@ en:
       none: "No saved search was defined."
       add: "Add"
       remove: "Remove"
+
+      notification: "<span></span> %{description}"

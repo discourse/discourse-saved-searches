@@ -20,15 +20,19 @@ after_initialize do
   end
 
   require File.expand_path('../app/controllers/saved_searches_controller.rb', __FILE__)
-  require File.expand_path('../app/jobs/regular/saved_search_notification.rb', __FILE__)
+  require File.expand_path('../app/jobs/regular/execute_saved_searches.rb', __FILE__)
   require File.expand_path('../app/jobs/scheduled/schedule_saved_searches.rb', __FILE__)
   require File.expand_path('../app/models/saved_search_result.rb', __FILE__)
   require File.expand_path('../app/models/saved_search.rb', __FILE__)
+  require File.expand_path('../lib/email_user_extensions.rb', __FILE__)
   require File.expand_path('../lib/guardian_extensions.rb', __FILE__)
   require File.expand_path('../lib/user_extensions.rb', __FILE__)
+  require File.expand_path('../lib/user_notifications_extensions.rb', __FILE__)
 
+  NotificationEmailer::EmailUser.class_eval { prepend EmailUserExtensions }
   Guardian.class_eval { prepend GuardianExtensions }
   User.class_eval { prepend UserExtensions }
+  UserNotifications.class_eval { prepend UserNotificationsExtensions }
 
   Search.advanced_filter(/^min-post-id:(.*)$/i) do |posts, match|
     if @opts[:saved_search] && id = match.to_i
