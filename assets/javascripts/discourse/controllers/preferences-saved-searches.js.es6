@@ -1,11 +1,11 @@
-import computed from 'ember-addons/ember-computed-decorators';
+import discourseComputed from 'discourse-common/utils/decorators';
 import { ajax } from 'discourse/lib/ajax';
 import { popupAjaxError } from 'discourse/lib/ajax-error';
 
 export default Ember.Controller.extend({
   saving: false,
 
-  @computed('model.author_level')
+  @discourseComputed('model.author_level')
   maxSavedSearches(authorLevel) {
     if (authorLevel && authorLevel > 2) {
       if (authorLevel >= 7) { return 15; }
@@ -20,7 +20,7 @@ export default Ember.Controller.extend({
     }
   },
 
-  @computed('model.saved_searches')
+  @discourseComputed('model.saved_searches')
   searchStrings() {
     let records = [];
     (this.get('model.saved_searches')||[]).forEach(s => {
