@@ -1,16 +1,19 @@
 import Controller from "@ember/controller";
 import { action } from "@ember/object";
-import discourseComputed from "discourse-common/utils/decorators";
 import { ajax } from "discourse/lib/ajax";
 import { popupAjaxError } from "discourse/lib/ajax-error";
+import { propertyLessThan } from "discourse/lib/computed";
 
 export default Controller.extend({
-  saving: false,
+  savedSearches: null,
 
-  @discourseComputed("savedSearches.length", "siteSettings.max_saved_searches")
-  canAddSavedSearch(length, max) {
-    return length < max;
-  },
+  isSaving: false,
+  saved: false,
+
+  canAddSavedSearch: propertyLessThan(
+    "savedSearches.length",
+    "siteSettings.max_saved_searches"
+  ),
 
   @action
   addSavedSearch() {
@@ -24,7 +27,7 @@ export default Controller.extend({
 
   @action
   save() {
-    this.setProperties({ saved: false, isSaving: true });
+    this.setProperties({ isSaving: true, saved: false });
 
     const savedSearches = this.savedSearches
       .map((savedSearch) => {

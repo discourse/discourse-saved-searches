@@ -7,11 +7,9 @@ export default RestrictedUserRoute.extend({
     }
 
     const savedSearches = [];
-    if (model.saved_searches) {
-      model.saved_searches.forEach((query) => {
-        savedSearches.push({ query });
-      });
-    }
+    model?.saved_searches?.forEach((query) => {
+      savedSearches.push({ query });
+    });
 
     controller.setProperties({ model, savedSearches });
   },
