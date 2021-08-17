@@ -2,9 +2,15 @@ en:
   js:
     saved_searches:
       title: "Saved Searches"
-      description: "Save up to %{count} searches and receive notifications about new search results."
+      description: "Save up to %{count} searches and receive notifications about new search results. Each saved search can have a different frequency for notifications."
       none: "No saved search was defined."
       add: "Add"
       remove: "Remove"
 
       notification: "<span></span> %{description}"
+
+      frequency_options:
+        immediately: "Immediately"
+        hourly: "Hourly"
+        daily: "Daily"
+        weekly: "Weekly"

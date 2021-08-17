@@ -24,6 +24,7 @@ after_initialize do
   require File.expand_path('../app/jobs/scheduled/schedule_saved_searches.rb', __FILE__)
   require File.expand_path('../app/models/saved_search_result.rb', __FILE__)
   require File.expand_path('../app/models/saved_search.rb', __FILE__)
+  require File.expand_path('../app/serializers/saved_search_serializer.rb', __FILE__)
   require File.expand_path('../lib/email_user_extensions.rb', __FILE__)
   require File.expand_path('../lib/guardian_extensions.rb', __FILE__)
   require File.expand_path('../lib/user_extensions.rb', __FILE__)
@@ -59,7 +60,11 @@ after_initialize do
   end
 
   add_to_serializer(:user, :saved_searches, false) do
-    object.saved_searches.pluck(:query)
+    ActiveModel::ArraySerializer.new(
+      object.saved_searches,
+      each_serializer: SavedSearchSerializer,
+      scope: scope
+    ).as_json
   end
 
   add_to_serializer(:user, :include_saved_searches?) do

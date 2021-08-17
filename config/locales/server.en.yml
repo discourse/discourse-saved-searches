@@ -4,6 +4,16 @@ en:
     saved_searches_min_trust_level: "Minimum trust level to have saved searches"
     max_saved_searches: "Maximum number of saved searches"
 
+  system_messages:
+    saved_searches_notification:
+      title: "New Search Results"
+      subject_template: "New Search Results: %{term}"
+      post_link_text: "[**%{title}**, post #%{post_number}](%{url})"
+      text_body_template: |
+        New results have been found for **%{term}**!
+
+        %{posts}
+
   user_notifications:
     saved_search:
       title: "New Saved Search Result"

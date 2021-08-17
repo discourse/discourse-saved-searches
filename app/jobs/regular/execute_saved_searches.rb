@@ -12,6 +12,18 @@ module Jobs
         time_1 = Process.clock_gettime(Process::CLOCK_MONOTONIC)
         time_2 = nil
 
+        # Skip saved search if it is not due yet
+        if saved_search.frequency != SavedSearch.frequencies[:immediately]
+          case saved_search.frequency
+          when SavedSearch.frequencies[:daily]
+            next if saved_search.last_searched_at > 1.day.ago
+          when SavedSearch.frequencies[:weekly]
+            next if saved_search.last_searched_at > 1.week.ago
+          when SavedSearch.frequencies[:monthly]
+            next if saved_search.last_searched_at > 1.month.ago
+          end
+        end
+
         # Store creation date of the last indexed post to use it as a starting
         # point for future searches
         saved_search.last_searched_at = DB.query_single(<<~SQL).first || Time.zone.now
@@ -62,11 +74,46 @@ module Jobs
 
         posts = results.posts.reject { |post| post.user_id == user.id || post.post_type != Post.types[:regular] }
         if posts.size > 0
-          create_notifications(user, saved_search, posts)
+          if saved_search.frequency != SavedSearch.frequencies[:immediately]
+            create_digest(user, saved_search, posts)
+          else
+            create_notifications(user, saved_search, posts)
+          end
           saved_search.last_post_id = [saved_search.last_post_id, posts.map(&:id).max].max
         end
 
         saved_search.save!
+      end
+    end
+
+    private
+
+    def create_digest(user, saved_search, posts)
+      posts_raw = if posts.size < 6
+        posts.map(&:full_url).join("\n\n")
+      else
+        posts.map do |post|
+          I18n.t('system_messages.saved_searches_notification.post_link_text',
+            title: post.topic&.title,
+            post_number: post.post_number,
+            url: post.url
+          )
+        end.join("\n")
+      end
+
+      custom_field_name = "pm_saved_search_results_#{user.id}"
+
+      # Find existing topic for this search term
+      if tcf = TopicCustomField.where(name: custom_field_name, value: saved_search.query).last
+        PostCreator.create!(
+          Discourse.system_user,
+          topic_id: tcf.topic_id,
+          raw: I18n.t('system_messages.saved_searches_notification.text_body_template', term: saved_search.query, posts: posts_raw),
+          skip_validations: true
+        )
+      else
+        post = SystemMessage.create_from_system_user(user, :saved_searches_notification, term: saved_search.query, posts: posts_raw)
+        post.topic.upsert_custom_fields(custom_field_name => saved_search.query)
       end
     end
 

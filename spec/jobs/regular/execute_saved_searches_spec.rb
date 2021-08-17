@@ -3,7 +3,7 @@
 require 'rails_helper'
 
 describe Jobs::ExecuteSavedSearches do
-  let!(:user) { Fabricate(:user, trust_level: 1) }
+  fab!(:user) { Fabricate(:user, trust_level: 1) }
 
   before do
     SearchIndexer.enable
@@ -16,10 +16,8 @@ describe Jobs::ExecuteSavedSearches do
   end
 
   context "with saved searches" do
-    before do
-      SavedSearch.create!(user: user, query: "coupon")
-      SavedSearch.create!(user: user, query: "discount")
-    end
+    fab!(:saved_search_1) { Fabricate(:saved_search, user: user, query: "coupon") }
+    fab!(:saved_search_2) { Fabricate(:saved_search, user: user, query: "discount") }
 
     it "does not create a notification for the user if no results are found" do
       expect { described_class.new.execute(user_id: user.id) }
@@ -122,6 +120,57 @@ describe Jobs::ExecuteSavedSearches do
 
         expect { described_class.new.execute(user_id: user.id) }
           .to change { Notification.count }.by(2)
+      end
+    end
+
+    context "with daily digests" do
+      let!(:post) { Fabricate(:post, raw: "Check out these coupon codes for cool things.") }
+
+      before do
+        SavedSearch.update_all(last_searched_at: 1.day.ago, frequency: SavedSearch.frequencies[:daily])
+      end
+
+      it "creates a notification if recent results are found" do
+        expect { described_class.new.execute(user_id: user.id) }
+          .to change { Topic.count }.by(1)
+      end
+
+      it "creates a notification for each result" do
+        Fabricate(:post, raw: "An exclusive coupon just for you cool people.")
+        Fabricate(:post, raw: "Another exclusive coupon just for you cool people.")
+        Fabricate(:post, raw: "An exclusive discount just for you cool people.")
+
+        expect { described_class.new.execute(user_id: user.id) }
+          .to change { Topic.count }.by(2)
+      end
+
+      it "does not create a new topic if one exists" do
+        expect { described_class.new.execute(user_id: user.id) }
+          .to change { Topic.count }.by(1)
+
+        Fabricate(:post, raw: "An exclusive coupon just for you cool people.")
+        SavedSearch.update_all(last_searched_at: 1.day.ago)
+
+        expect { described_class.new.execute(user_id: user.id) }
+          .to change { Topic.count }.by(0)
+          .and change { Post.count }.by(1)
+      end
+
+      it "does not create a new topic if not enough time passed" do
+        expect { described_class.new.execute(user_id: user.id) }
+          .to change { Topic.count }.by(1)
+
+        Fabricate(:post, raw: "An exclusive coupon just for you cool people.")
+
+        expect { described_class.new.execute(user_id: user.id) }
+          .to change { Topic.count }.by(0)
+          .and change { Post.count }.by(0)
+
+        SavedSearch.update_all(last_searched_at: 1.day.ago)
+
+        expect { described_class.new.execute(user_id: user.id) }
+          .to change { Topic.count }.by(0)
+          .and change { Post.count }.by(1)
       end
     end
   end

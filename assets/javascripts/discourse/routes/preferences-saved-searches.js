@@ -6,11 +6,9 @@ export default RestrictedUserRoute.extend({
       return this.transitionTo("preferences.account");
     }
 
-    const savedSearches = [];
-    model?.saved_searches?.forEach((query) => {
-      savedSearches.push({ query });
+    controller.setProperties({
+      model,
+      savedSearches: model.saved_searches || [],
     });
-
-    controller.setProperties({ model, savedSearches });
   },
 });

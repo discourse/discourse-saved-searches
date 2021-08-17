@@ -6,6 +6,7 @@ class CreateSavedSearchesTables < ActiveRecord::Migration[6.1]
       t.integer :user_id, null: false
       t.string :query, null: false
       t.string :compiled_query
+      t.integer :frequency, null: false
       t.integer :last_post_id, null: false
       t.datetime :last_searched_at, null: false
       t.timestamps
@@ -14,9 +15,10 @@ class CreateSavedSearchesTables < ActiveRecord::Migration[6.1]
     end
 
     execute <<~SQL
-      INSERT INTO saved_searches(user_id, query, last_post_id, last_searched_at, created_at, updated_at)
+      INSERT INTO saved_searches(user_id, query, frequency, last_post_id, last_searched_at, created_at, updated_at)
       SELECT ucf1.user_id,
              json_array_elements_text(ucf1.value::json->'searches'),
+             2,
              COALESCE(ucf2.value::integer, 0),
              ucf2.updated_at,
              ucf1.created_at,

@@ -1,8 +1,10 @@
 import Controller from "@ember/controller";
 import { action } from "@ember/object";
+import discourseComputed from "discourse-common/utils/decorators";
 import { ajax } from "discourse/lib/ajax";
 import { popupAjaxError } from "discourse/lib/ajax-error";
 import { propertyLessThan } from "discourse/lib/computed";
+import I18n from "I18n";
 
 export default Controller.extend({
   savedSearches: null,
@@ -15,9 +17,31 @@ export default Controller.extend({
     "siteSettings.max_saved_searches"
   ),
 
+  @discourseComputed
+  savedSearchFrequencyOptions() {
+    return [
+      {
+        name: I18n.t("saved_searches.frequency_options.immediately"),
+        value: "immediately",
+      },
+      {
+        name: I18n.t("saved_searches.frequency_options.hourly"),
+        value: "hourly",
+      },
+      {
+        name: I18n.t("saved_searches.frequency_options.daily"),
+        value: "daily",
+      },
+      {
+        name: I18n.t("saved_searches.frequency_options.weekly"),
+        value: "weekly",
+      },
+    ];
+  },
+
   @action
   addSavedSearch() {
-    this.savedSearches.pushObject({ query: "" });
+    this.savedSearches.pushObject({ query: "", frequency: "daily" });
   },
 
   @action
@@ -29,12 +53,9 @@ export default Controller.extend({
   save() {
     this.setProperties({ isSaving: true, saved: false });
 
-    const savedSearches = this.savedSearches
-      .map((savedSearch) => {
-        const query = savedSearch.query.trim();
-        return query ? query : null;
-      })
-      .compact();
+    const savedSearches = this.savedSearches.filter(
+      (savedSearch) => !!savedSearch.query.trim()
+    );
 
     return ajax(`/u/${this.model.username}/preferences/saved-searches`, {
       type: "PUT",

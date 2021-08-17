@@ -9,6 +9,15 @@ class SavedSearch < ActiveRecord::Base
   before_save :set_last_searched_at
   after_save :compile_query
 
+  def self.frequencies
+    @frequencies ||= Enum.new(
+      immediately: 0,
+      hourly: 1,
+      daily: 2,
+      weekly: 3,
+    )
+  end
+
   private
 
   def set_last_post_id
