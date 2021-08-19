@@ -24,9 +24,8 @@ class CreateSavedSearchesTables < ActiveRecord::Migration[6.1]
              ucf1.created_at,
              ucf1.updated_at
       FROM user_custom_fields ucf1
-      LEFT JOIN user_custom_fields ucf2 ON ucf1.user_id = ucf2.user_id
-      WHERE ucf1.name = 'saved_searches' AND
-            ucf2.name = 'saved_searches_min_post_id'
+      LEFT JOIN user_custom_fields ucf2 ON ucf1.user_id = ucf2.user_id AND ucf2.name = 'saved_searches_min_post_id'
+      WHERE ucf1.name = 'saved_searches'
     SQL
 
     create_table :saved_search_results do |t|
