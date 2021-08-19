@@ -6,6 +6,7 @@ class SavedSearches::SavedSearchesController < ApplicationController
   def update
     user = fetch_user_from_params
     guardian.ensure_can_edit!(user)
+    user.guardian.ensure_can_use_saved_searches!
 
     searches = []
     params[:searches].each do |_, search|
@@ -27,7 +28,7 @@ class SavedSearches::SavedSearchesController < ApplicationController
       # Delete saved searches that no longer exist
       user.saved_searches.where.not(query: searches.map { |s| s[:query] }).destroy_all
 
-      # Create new saved searches
+      # Create new or update old saved searches
       searches.each do |search|
         saved_search = user.saved_searches.find_or_initialize_by(query: search[:query])
         saved_search.update!(frequency: search[:frequency])

@@ -20,7 +20,7 @@ class CreateSavedSearchesTables < ActiveRecord::Migration[6.1]
              json_array_elements_text(ucf1.value::json->'searches'),
              2,
              COALESCE(ucf2.value::integer, 0),
-             ucf2.updated_at,
+             COALESCE(ucf2.updated_at, ucf1.updated_at),
              ucf1.created_at,
              ucf1.updated_at
       FROM user_custom_fields ucf1

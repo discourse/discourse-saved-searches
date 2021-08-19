@@ -19,23 +19,25 @@ after_initialize do
     end
   end
 
-  require File.expand_path('../app/controllers/saved_searches_controller.rb', __FILE__)
-  require File.expand_path('../app/jobs/regular/execute_saved_searches.rb', __FILE__)
-  require File.expand_path('../app/jobs/scheduled/schedule_saved_searches.rb', __FILE__)
-  require File.expand_path('../app/models/saved_search_result.rb', __FILE__)
-  require File.expand_path('../app/models/saved_search.rb', __FILE__)
-  require File.expand_path('../app/serializers/saved_search_serializer.rb', __FILE__)
-  require File.expand_path('../lib/email_user_extensions.rb', __FILE__)
-  require File.expand_path('../lib/guardian_extensions.rb', __FILE__)
-  require File.expand_path('../lib/user_extensions.rb', __FILE__)
-  require File.expand_path('../lib/user_notifications_extensions.rb', __FILE__)
+  require_relative 'app/controllers/saved_searches_controller.rb'
+  require_relative 'app/jobs/regular/execute_saved_searches.rb'
+  require_relative 'app/jobs/scheduled/schedule_saved_searches.rb'
+  require_relative 'app/models/saved_search_result.rb'
+  require_relative 'app/models/saved_search.rb'
+  require_relative 'app/serializers/saved_search_serializer.rb'
+  require_relative 'lib/email_user_extensions.rb'
+  require_relative 'lib/guardian_extensions.rb'
+  require_relative 'lib/user_extensions.rb'
+  require_relative 'lib/user_notifications_extensions.rb'
 
-  NotificationEmailer::EmailUser.class_eval { prepend EmailUserExtensions }
-  Guardian.class_eval { prepend GuardianExtensions }
-  User.class_eval { prepend UserExtensions }
-  UserNotifications.class_eval { prepend UserNotificationsExtensions }
+  reloadable_patch do
+    NotificationEmailer::EmailUser.class_eval { prepend SavedSearches::EmailUserExtensions }
+    Guardian.class_eval { prepend SavedSearches::GuardianExtensions }
+    User.class_eval { prepend SavedSearches::UserExtensions }
+    UserNotifications.class_eval { prepend SavedSearches::UserNotificationsExtensions }
+  end
 
-  Search.advanced_filter(/^min-post-id:(.*)$/i) do |posts, match|
+  register_search_advanced_filter(/^min-post-id:(.*)$/i) do |posts, match|
     if @opts[:saved_search] && id = match.to_i
       posts.where("posts.id > ?", id)
     else
@@ -43,7 +45,7 @@ after_initialize do
     end
   end
 
-  Search.advanced_filter(/^min-created-at:(.*)$/i) do |posts, match|
+  register_search_advanced_filter(/^min-created-at:(.*)$/i) do |posts, match|
     if @opts[:saved_search] && created_at = match.to_datetime
       posts.where("posts.created_at > ?", created_at)
     else

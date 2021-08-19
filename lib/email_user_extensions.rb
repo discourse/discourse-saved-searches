@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-module EmailUserExtensions
+module SavedSearches::EmailUserExtensions
   def custom
     if @notification.data_hash[:saved_search_id].present?
       enqueue :saved_search

@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-module UserExtensions
+module SavedSearches::UserExtensions
   def self.prepended(base)
     base.has_many :saved_searches
   end

@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-module UserNotificationsExtensions
+module SavedSearches::UserNotificationsExtensions
   def saved_search(user, opts = {})
     saved_search = SavedSearch.find_by(id: opts[:notification_data_hash][:saved_search_id])
     return if saved_search.blank?
