@@ -8,4 +8,3 @@ zh_CN:
   js:
     saved_searches:
       title: "已储存的搜索"
-      description: "保存最多 %{max} 个搜索，在有新结果时接收通知。"

@@ -8,4 +8,3 @@ hu:
   js:
     saved_searches:
       title: "Mentett keresések"
-      description: "Ments el legfeljebb %{max} keresést és értesülhetsz az új keresési eredményekről."

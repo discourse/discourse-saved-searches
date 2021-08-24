@@ -8,6 +8,7 @@ sv:
   site_settings:
     saved_searches_enabled: "Tillåt att användare har sparade sökningar"
     saved_searches_min_trust_level: "Lägsta förtroendenivå för att ha sparade sökningar"
+    max_saved_searches: "Maximalt antal sparade sökningar"
   system_messages:
     saved_searches_notification:
       title: "Nya sökresultat"
@@ -17,3 +18,11 @@ sv:
         Nya resultat har hittats för **%{term}**!
 
         %{posts}
+  user_notifications:
+    saved_search:
+      title: "Nytt sparat sökresultat"
+      subject_template: "[%{email_prefix}] Nytt sparat sökresultat: %{topic_title}"
+      text_body_template: |
+        Ett nytt resultat för sparad sökning **%{saved_search_query}** hittades.
+
+        %{post_url}

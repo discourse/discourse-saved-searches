@@ -8,4 +8,3 @@ de:
   js:
     saved_searches:
       title: "Gespeicherte Suchen"
-      description: "Speichere bis zu %{max} Suchen und erhalte Benachrichtigungen über neue Suchergebnisse."

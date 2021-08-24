@@ -7,7 +7,8 @@
 ru:
   site_settings:
     saved_searches_enabled: "Разрешить пользователям сохранять поисковые запросы"
-    saved_searches_min_trust_level: "Минимальный уровень доверия для сохранения результатов поиска"
+    saved_searches_min_trust_level: "Минимальный уровень доверия для сохранения поисковых запросов"
+    max_saved_searches: "Максимальное количество сохраняемых поисковых запросов"
   system_messages:
     saved_searches_notification:
       title: "Новый результат поиска"
@@ -17,3 +18,11 @@ ru:
         Новые результаты поиска получены по условию **%{term}**
 
         %{posts}
+  user_notifications:
+    saved_search:
+      title: "Новый результат сохранённого поискового запроса"
+      subject_template: "[%{email_prefix}] Новый результат сохранённого поискового запроса: %{topic_title}"
+      text_body_template: |
+        Обнаружен новый результат для сохранённого поискового запроса **%{saved_search_query}**.
+
+        %{post_url}

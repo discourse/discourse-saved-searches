@@ -8,4 +8,3 @@ fi:
   js:
     saved_searches:
       title: "Tallennetut haut"
-      description: "Voit tallentaa enintään%{max}hakua. Saat ilmoituksen uusista hakutuloksista."

@@ -8,4 +8,3 @@ ko:
   js:
     saved_searches:
       title: "저장된 검색"
-      description: "%{max} 검색 결과를 저장하고 새 검색 결과에 대한 알림을받습니다."
