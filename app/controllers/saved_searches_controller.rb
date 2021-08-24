@@ -9,20 +9,23 @@ class SavedSearches::SavedSearchesController < ApplicationController
     user.guardian.ensure_can_use_saved_searches!
 
     searches = []
-    params[:searches].each do |_, search|
-      raise Discourse::InvalidParameters.new(:query) if search[:query].blank?
-      raise Discourse::InvalidParameters.new(:frequency) if search[:frequency].blank?
 
-      query = search[:query].strip.presence
-      raise Discourse::InvalidParameters.new(:query) if query.blank?
+    if params[:searches].present?
+      params[:searches].each do |_, search|
+        raise Discourse::InvalidParameters.new(:query) if search[:query].blank?
+        raise Discourse::InvalidParameters.new(:frequency) if search[:frequency].blank?
 
-      frequency = SavedSearch.frequencies[search[:frequency].to_sym]
-      raise Discourse::InvalidParameters.new(:frequency) if frequency.blank?
+        query = search[:query].strip.presence
+        raise Discourse::InvalidParameters.new(:query) if query.blank?
 
-      searches << { query: query, frequency: frequency }
+        frequency = SavedSearch.frequencies[search[:frequency].to_sym]
+        raise Discourse::InvalidParameters.new(:frequency) if frequency.blank?
+
+        searches << { query: query, frequency: frequency }
+      end
+      searches = searches.uniq { |s| s[:query] }
+      raise Discourse::InvalidParameters.new(:searches) if searches.size > SiteSetting.max_saved_searches
     end
-    searches = searches.uniq { |s| s[:query] }
-    raise Discourse::InvalidParameters.new(:searches) if searches.size > SiteSetting.max_saved_searches
 
     SavedSearch.transaction do
       # Delete saved searches that no longer exist
