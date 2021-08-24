@@ -2,6 +2,8 @@ en:
   site_settings:
     saved_searches_enabled: "Allow users to have saved searches"
     saved_searches_min_trust_level: "Minimum trust level to have saved searches"
+    max_saved_searches: "Maximum number of saved searches"
+
   system_messages:
     saved_searches_notification:
       title: "New Search Results"
@@ -11,3 +13,12 @@ en:
         New results have been found for **%{term}**!
 
         %{posts}
+
+  user_notifications:
+    saved_search:
+      title: "New Saved Search Result"
+      subject_template: "[%{email_prefix}] New Saved Search Result: %{topic_title}"
+      text_body_template: |
+        A new result for saved search **%{saved_search_query}** was found.
+
+        %{post_url}
