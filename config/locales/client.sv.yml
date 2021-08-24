@@ -8,4 +8,12 @@ sv:
   js:
     saved_searches:
       title: "Sparade sökningar"
-      description: "Spara upp till %{max} sökningar och få aviseringar om nya sökresultat."
+      none: "Ingen sparad sökning har definierats."
+      add: "Lägg till"
+      remove: "Ta bort"
+      notification: "<span></span> %{description}"
+      frequency_options:
+        immediately: "Omedelbart"
+        hourly: "Varje timme"
+        daily: "Varje dag"
+        weekly: "Varje vecka"

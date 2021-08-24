@@ -8,4 +8,13 @@ he:
   js:
     saved_searches:
       title: "חיפושים שמורים"
-      description: "ניתן לשמור עד %{max} חיפושים ולקבל התראות על תוצאות חיפוש חדשות."
+      description: "ניתן לשמור עד %{count} חיפושים ולקבל התראות על תוצאות חיפוש חדשות. לכל חיפוש שנשמר יכולה להיות תדירות שונה להתראות."
+      none: "לא הוגדר חיפוש שמור."
+      add: "הוספה"
+      remove: "הסרה"
+      notification: "<span></span> %{description}"
+      frequency_options:
+        immediately: "מיידי"
+        hourly: "שעתי"
+        daily: "יומי"
+        weekly: "שבועי"

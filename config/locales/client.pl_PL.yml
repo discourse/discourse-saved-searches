@@ -8,4 +8,3 @@ pl_PL:
   js:
     saved_searches:
       title: "Zapisane wyszukiwania"
-      description: "Zapisz do %{max} wyszukiwań i otrzymuj powiadomienia o nowych wynikach."

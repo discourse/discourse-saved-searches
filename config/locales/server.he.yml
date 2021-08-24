@@ -8,6 +8,7 @@ he:
   site_settings:
     saved_searches_enabled: "לאפשר למשתמשים לשמור חיפושים"
     saved_searches_min_trust_level: "דרגת האמון המזערית לקבלת האפשרות לשמירת חיפושים"
+    max_saved_searches: "מספר החיפושים המרבי שנשמר"
   system_messages:
     saved_searches_notification:
       title: "תוצאות חיפוש חדשות"
@@ -17,3 +18,11 @@ he:
         נמצאו תוצאות חדשות לחיפוש אחר **%{term}**!
 
         %{posts}
+  user_notifications:
+    saved_search:
+      title: "תוצאת חיפוש חדשה שנשמרה"
+      subject_template: "[%{email_prefix}] תוצאת חיפוש חדשה נשמרה: %{topic_title}"
+      text_body_template: |
+        נמצאה תוצאה חדשה לחיפוש שנשמר **%{saved_search_query}**.
+
+        %{post_url}

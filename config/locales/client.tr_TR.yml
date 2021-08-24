@@ -8,4 +8,3 @@ tr_TR:
   js:
     saved_searches:
       title: "Kaydedilmiş Aramalar"
-      description: "%{max} aramaya kadar kaydedin ve yeni arama sonuçları hakkında bildirim alın."

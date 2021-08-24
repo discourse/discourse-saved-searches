@@ -8,4 +8,3 @@ it:
   js:
     saved_searches:
       title: "Ricerche Salvate"
-      description: "Salva fino a %{max} ricerche e ricevi notifiche relative a nuovi risultati nella ricerca."
