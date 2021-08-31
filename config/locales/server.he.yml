@@ -20,8 +20,8 @@ he:
         %{posts}
   user_notifications:
     saved_search:
-      title: "תוצאת חיפוש חדשה שנשמרה"
-      subject_template: "[%{email_prefix}] תוצאת חיפוש חדשה נשמרה: %{topic_title}"
+      title: "תוצאה חדשה בחיפוש שנשמר"
+      subject_template: "[%{email_prefix}] תוצאה חדשה בחיפוש שנשמר: %{topic_title}"
       text_body_template: |
         נמצאה תוצאה חדשה לחיפוש שנשמר **%{saved_search_query}**.
 
