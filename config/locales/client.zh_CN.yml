@@ -8,3 +8,12 @@ zh_CN:
   js:
     saved_searches:
       title: "已储存的搜索"
+      description: "最多保存 %{count} 个搜索并接收有关新搜索结果的通知。每个保存的搜索可以有不同的通知频率。"
+      none: "未定义已保存的搜索。"
+      add: "添加"
+      remove: "移除"
+      frequency_options:
+        immediately: "立即"
+        hourly: "每小时"
+        daily: "每天"
+        weekly: "每周"
