@@ -8,6 +8,7 @@ zh_CN:
   site_settings:
     saved_searches_enabled: "允许用户保存搜索"
     saved_searches_min_trust_level: "保存搜索的最低信任等级"
+    max_saved_searches: "已保存搜索的最大数量"
   system_messages:
     saved_searches_notification:
       title: "新搜索结果"
@@ -17,3 +18,11 @@ zh_CN:
         已找到**%{term}**！结果
 
         %{posts}
+  user_notifications:
+    saved_search:
+      title: "新保存的搜索结果"
+      subject_template: "[%{email_prefix}] 新保存的搜索结果： %{topic_title}"
+      text_body_template: |
+        找到了已保存搜索 **%{saved_search_query}** 的新结果。
+
+        %{post_url}
