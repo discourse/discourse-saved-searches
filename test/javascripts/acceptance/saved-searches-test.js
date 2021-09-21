@@ -3,6 +3,7 @@ import {
   count,
   exists,
 } from "discourse/tests/helpers/qunit-helpers";
+import { visit } from "@ember/test-helpers";
 import { test } from "qunit";
 
 acceptance("Saved Searches", function (needs) {
