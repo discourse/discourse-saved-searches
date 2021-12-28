@@ -6,8 +6,9 @@
 
 fr:
   site_settings:
-    saved_searches_enabled: "Permettre aux utilisateurs de sauvegarder des recherches"
-    saved_searches_min_trust_level: "Niveau de confiance minimum requis pour sauvegarder des recherches"
+    saved_searches_enabled: "Permettre aux utilisateurs d'enregistrer des recherches"
+    saved_searches_min_trust_level: "Niveau de confiance minimal requis pour enregistrer des recherches"
+    max_saved_searches: "Nombre maximal de recherches enregistrées"
   system_messages:
     saved_searches_notification:
       title: "Nouveaux résultats de recherche"
@@ -17,3 +18,11 @@ fr:
         De nouveaux résultats ont été trouvés pour **%{term}** !
 
         %{posts}
+  user_notifications:
+    saved_search:
+      title: "Nouveau résultat de recherche enregistrée"
+      subject_template: "[%{email_prefix}] Nouveau résultat de recherche enregistrée : %{topic_title}"
+      text_body_template: |
+        Un nouveau résultat pour la recherche enregistrée **%{saved_search_query}** a été trouvé.
+
+        %{post_url}

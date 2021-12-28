@@ -5,3 +5,24 @@
 # https://translate.discourse.org/
 
 ar:
+  site_settings:
+    saved_searches_enabled: "السماح للمستخدمين بحفظ عمليات البحث"
+    saved_searches_min_trust_level: "الحد الأدنى لمستوى الثقة لحفظ عمليات البحث"
+    max_saved_searches: "أقصى عدد من عمليات البحث المحفوظة"
+  system_messages:
+    saved_searches_notification:
+      title: "نتائج بحث جديدة"
+      subject_template: "نتائج البحث الجديدة: %{term}"
+      post_link_text: "[**%{title}**، المنشور #%{post_number}](%{url})"
+      text_body_template: |
+        تم العثور على نتائج جديدة للبحث عن **%{term}**!
+
+        %{posts}
+  user_notifications:
+    saved_search:
+      title: "نتيجة بحث محفوظة جديدة"
+      subject_template: "[%{email_prefix}] نتيجة بحث محفوظة جديدة: %{topic_title}"
+      text_body_template: |
+        تم العثور على نتيجة جديدة للبحث المحفوظ **%{saved_search_query}**.
+
+        %{post_url}

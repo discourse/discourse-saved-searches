@@ -8,3 +8,13 @@ de:
   js:
     saved_searches:
       title: "Gespeicherte Suchen"
+      description: "Speichere bis zu %{count} Suchen und erhalte Benachrichtigungen über neue Suchergebnisse. Für jede gespeicherte Suche kann eine andere Häufigkeit der Benachrichtigungen festgelegt werden."
+      none: "Es wurde keine gespeicherte Suche definiert."
+      add: "Hinzufügen"
+      remove: "Entfernen"
+      notification: "<span></span> %{description}"
+      frequency_options:
+        immediately: "Sofort"
+        hourly: "Stündlich"
+        daily: "Täglich"
+        weekly: "Wöchentlich"

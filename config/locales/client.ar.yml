@@ -5,3 +5,16 @@
 # https://translate.discourse.org/
 
 ar:
+  js:
+    saved_searches:
+      title: "عمليات البحث المحفوظة"
+      description: "احفظ ما يصل إلى %{count} من عمليات البحث وتلقَّ الإشعارات بشأن نتائج البحث الجديدة. يمكن أن يكون لكل بحث محفوظ تردد مختلف للإشعارات."
+      none: "لم يتم تحديد أي بحث محفوظ."
+      add: "إضافة"
+      remove: "إزالة"
+      notification: "<span></span> %{description}"
+      frequency_options:
+        immediately: "فورًا"
+        hourly: "كل ساعة"
+        daily: "يوميًا"
+        weekly: "أسبوعيًا"
