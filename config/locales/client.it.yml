@@ -8,3 +8,13 @@ it:
   js:
     saved_searches:
       title: "Ricerche Salvate"
+      description: "Salva fino a %{count} ricerche e ricevi notifiche sui nuovi risultati di ricerca. Ogni ricerca salvata può avere una frequenza diversa per le notifiche."
+      none: "Nessuna ricerca salvata è stata definita."
+      add: "Aggiungi"
+      remove: "Rimuovi"
+      notification: "<span></span> %{description}"
+      frequency_options:
+        immediately: "Immediatamente"
+        hourly: "Ogni ora"
+        daily: "Ogni giorno"
+        weekly: "Ogni settimana"

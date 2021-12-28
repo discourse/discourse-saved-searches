@@ -7,7 +7,8 @@
 it:
   site_settings:
     saved_searches_enabled: "Consenti agli utenti di salvare le ricerche"
-    saved_searches_min_trust_level: "Livello di esperienza minimo per poter salvare le ricerche"
+    saved_searches_min_trust_level: "Livello di attendibilità minimo per poter salvare le ricerche"
+    max_saved_searches: "Numero massimo di ricerche salvate"
   system_messages:
     saved_searches_notification:
       title: "Nuovi Risultati di Ricerca"
@@ -17,3 +18,11 @@ it:
         Sono stati trovati nuovi risultati per **%{term}**!
 
         %{posts}
+  user_notifications:
+    saved_search:
+      title: "Nuovo risultato di ricerca salvato"
+      subject_template: "[%{email_prefix}] Nuovo risultato di ricerca salvato: %{topic_title}"
+      text_body_template: |
+        È stato trovato un nuovo risultato per la ricerca salvata **%{saved_search_query}**.
+
+        %{post_url}

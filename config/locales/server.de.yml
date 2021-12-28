@@ -7,7 +7,8 @@
 de:
   site_settings:
     saved_searches_enabled: "Benutzern erlauben, Suchen zu speichern"
-    saved_searches_min_trust_level: "Minimale Vertrauensstufe, um Suchen zu speichern."
+    saved_searches_min_trust_level: "Minimale Vertrauensstufe, um Suchen zu speichern"
+    max_saved_searches: "Maximale Anzahl gespeicherter Suchen"
   system_messages:
     saved_searches_notification:
       title: "Neue Suchergebnisse"
@@ -17,3 +18,11 @@ de:
         Neue Ergebnisse wurden gefunden für **%{term}**!
 
         %{posts}
+  user_notifications:
+    saved_search:
+      title: "Neues Ergebnis für gespeicherte Suche"
+      subject_template: "[%{email_prefix}] Neues Ergebnis für gespeicherte Suche: %{topic_title}"
+      text_body_template: |
+        Ein neues Ergebnis für die gespeicherte Suche **%{saved_search_query}** wurde gefunden.
+
+        %{post_url}

@@ -8,3 +8,13 @@ fr:
   js:
     saved_searches:
       title: "Recherches enregistrées"
+      description: "Enregistrez jusqu'à %{count} recherches et recevez des notifications en cas de nouveaux résultats. Vous pouvez modifier la fréquence des notifications de chaque recherche enregistrée."
+      none: "Aucune recherche enregistrée n'a été définie."
+      add: "Ajouter"
+      remove: "Supprimer"
+      notification: "<span></span> %{description}"
+      frequency_options:
+        immediately: "Immédiatement"
+        hourly: "Toutes les heures"
+        daily: "Tous les jours"
+        weekly: "Toutes les semaines"

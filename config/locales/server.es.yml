@@ -8,6 +8,7 @@ es:
   site_settings:
     saved_searches_enabled: "Permitir a los usuarios tener búsquedas guardadas"
     saved_searches_min_trust_level: "Nivel de confianza mínimo para tener búsquedas guardadas"
+    max_saved_searches: "Número máximo de búsquedas guardadas"
   system_messages:
     saved_searches_notification:
       title: "Nuevos resultados de búsqueda"
@@ -17,3 +18,11 @@ es:
         ¡Se han encontrado nuevos resultados para **%{term}**!
 
         %{posts}
+  user_notifications:
+    saved_search:
+      title: "Nuevo resultado de búsqueda guardada"
+      subject_template: "[%{email_prefix}] Nuevo resultado de búsqueda guardada: %{topic_title}"
+      text_body_template: |
+        Se encontró un nuevo resultado para la búsqueda guardada **%{saved_search_query}**.
+
+        %{post_url}
