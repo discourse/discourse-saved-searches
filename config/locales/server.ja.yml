@@ -5,3 +5,24 @@
 # https://translate.discourse.org/
 
 ja:
+  site_settings:
+    saved_searches_enabled: "保存された検索の使用をユーザーに許可する"
+    saved_searches_min_trust_level: "保存された検索を使用できる最低信頼レベル"
+    max_saved_searches: "保存された検索の最大件数"
+  system_messages:
+    saved_searches_notification:
+      title: "新しい検索結果"
+      subject_template: "新しい検索結果: %{term}"
+      post_link_text: "[**%{title}**、投稿 #%{post_number}]（%{url}）"
+      text_body_template: |
+        **%{term}** の新しい結果が見つかりました！
+
+        %{posts}
+  user_notifications:
+    saved_search:
+      title: "保存された検索の新しい結果"
+      subject_template: "[%{email_prefix}] 保存された検索の新しい結果: %{topic_title}"
+      text_body_template: |
+        保存された検索 **%{saved_search_query}** の新しい結果が見つかりました。
+
+        %{post_url}

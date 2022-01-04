@@ -8,6 +8,7 @@ pt_BR:
   site_settings:
     saved_searches_enabled: "Permitir que usuários tenham pesquisas salvas"
     saved_searches_min_trust_level: "Nível de confiança mínimo para ter pesquisas salvas"
+    max_saved_searches: "Número máximo de pesquisas salvas"
   system_messages:
     saved_searches_notification:
       title: "Novos Resultados de Pesquisa"
@@ -17,3 +18,11 @@ pt_BR:
         Novos resultados foram encontrados para **%{term}**!
 
         %{posts}
+  user_notifications:
+    saved_search:
+      title: "Novo resultado de pesquisa salva"
+      subject_template: "[%{email_prefix}] Resultado de novas pesquisas salvas: %{topic_title}"
+      text_body_template: |
+        Um novo resultado para a pesquisa salva **%{saved_search_query}** foi encontrado.
+
+        %{post_url}
