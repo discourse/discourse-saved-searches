@@ -5,3 +5,16 @@
 # https://translate.discourse.org/
 
 ja:
+  js:
+    saved_searches:
+      title: "保存された検索"
+      description: "検索を最大 %{count} 件保存し、新しい検索結果がある場合に通知を受け取ることができます。保存された検索ごとに異なる通知頻度を設定することができます。"
+      none: "保存された検索は定義されていません。"
+      add: "追加"
+      remove: "削除"
+      notification: "<span></span> %{description}"
+      frequency_options:
+        immediately: "今すぐ"
+        hourly: "毎時間"
+        daily: "毎日"
+        weekly: "毎週"

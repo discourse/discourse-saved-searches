@@ -7,4 +7,14 @@
 pt_BR:
   js:
     saved_searches:
-      title: "Pesquisas Salvas"
+      title: "Pesquisas salvas"
+      description: "Salve até %{count} pesquisas e receba notificações sobre novos resultados de busca. Cada pesquisa salva pode ter uma frequência diferente para notificações."
+      none: "Nenhuma pesquisa salva foi definida."
+      add: "Adicionar"
+      remove: "Remover"
+      notification: "<span></span> %{description}"
+      frequency_options:
+        immediately: "Imediatamente"
+        hourly: "A cada hora"
+        daily: "A cada dia"
+        weekly: "A cada semana"
