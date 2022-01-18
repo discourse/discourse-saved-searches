@@ -8,3 +8,13 @@ fi:
   js:
     saved_searches:
       title: "Tallennetut haut"
+      description: "Tallenna enintään %{count} hakua ja vastaanota ilmoituksia uusista hakutuloksista. Jokaisella tallennetulla haulla voi olla eri ilmoitustiheys."
+      none: "Tallennettua hakua ei määritetty."
+      add: "Lisää"
+      remove: "Poista"
+      notification: "<span></span> %{description}"
+      frequency_options:
+        immediately: "Heti"
+        hourly: "Tunneittain"
+        daily: "Päivittäin"
+        weekly: "Viikoittain"
