@@ -46,14 +46,14 @@ acceptance("Saved Searches", function (needs) {
       "can add more than one saved search"
     );
 
-    await click(".saved-searches-controls .remove-saved-search:first");
+    await click(".saved-searches-controls .remove-saved-search");
     assert.equal(
       count(".saved-searches-controls input"),
       1,
       "can remove saved searches"
     );
 
-    await fillIn(".saved-searches-controls:first input", "ballista");
+    await fillIn(".saved-searches-controls input", "ballista");
     assert.ok(!exists(".saved"), "it hasn't been saved yet");
 
     await click(".save-changes");
