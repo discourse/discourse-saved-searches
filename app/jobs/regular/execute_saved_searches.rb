@@ -104,7 +104,7 @@ module Jobs
       custom_field_name = "pm_saved_search_results_#{user.id}"
 
       # Find existing topic for this search term
-      if tcf = TopicCustomField.where(name: custom_field_name, value: saved_search.query).last
+      if tcf = TopicCustomField.joins(:topic).where(name: custom_field_name, value: saved_search.query).last
         PostCreator.create!(
           Discourse.system_user,
           topic_id: tcf.topic_id,
