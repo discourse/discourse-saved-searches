@@ -9,7 +9,7 @@ describe SavedSearches::SavedSearchesController do
     SiteSetting.saved_searches_enabled = true
   end
 
-  context "#update" do
+  describe "#update" do
     it "does not work when not logged in" do
       put "/u/#{user.username}/preferences/saved-searches.json"
       expect(response.status).to eq(403)

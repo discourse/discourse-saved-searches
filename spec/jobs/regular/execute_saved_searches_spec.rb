@@ -104,7 +104,7 @@ describe Jobs::ExecuteSavedSearches do
       end
     end
 
-    context "not the first search" do
+    context "when not the first search" do
       let!(:post) { Fabricate(:post, raw: "Check out these coupon codes for cool things.") }
 
       before do
@@ -154,7 +154,7 @@ describe Jobs::ExecuteSavedSearches do
         SavedSearch.update_all(last_searched_at: 1.day.ago)
 
         expect { job.execute(user_id: user.id) }
-          .to change { Topic.count }.by(0)
+          .to not_change { Topic.count }
           .and change { Post.count }.by(1)
       end
 
@@ -165,13 +165,13 @@ describe Jobs::ExecuteSavedSearches do
         Fabricate(:post, raw: "An exclusive coupon just for you cool people.")
 
         expect { job.execute(user_id: user.id) }
-          .to change { Topic.count }.by(0)
-          .and change { Post.count }.by(0)
+          .to not_change { Topic.count }
+          .and not_change { Post.count }
 
         SavedSearch.update_all(last_searched_at: 1.day.ago)
 
         expect { job.execute(user_id: user.id) }
-          .to change { Topic.count }.by(0)
+          .to not_change { Topic.count }
           .and change { Post.count }.by(1)
       end
 
