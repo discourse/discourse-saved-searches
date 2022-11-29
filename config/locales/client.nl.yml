@@ -7,4 +7,14 @@
 nl:
   js:
     saved_searches:
-      title: "Opgeslagen zoektermen"
+      title: "Opgeslagen zoekopdrachten"
+      description: "Sla tot %{count} zoekopdrachten op en ontvang meldingen over nieuwe zoekresultaten. Elke opgeslagen zoekopdracht kan een andere meldingsfrequentie hebben."
+      none: "Er is geen opgeslagen zoekopdracht gedefinieerd."
+      add: "Toevoegen"
+      remove: "Verwijderen"
+      notification: "<span></span> %{description}"
+      frequency_options:
+        immediately: "Direct"
+        hourly: "Uurlijks"
+        daily: "Dagelijks"
+        weekly: "Wekelijks"
