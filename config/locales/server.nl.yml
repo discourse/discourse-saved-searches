@@ -6,14 +6,23 @@
 
 nl:
   site_settings:
-    saved_searches_enabled: "Gebruikers mogen opgeslagen zoektermen hebben"
-    saved_searches_min_trust_level: "Minimale vertrouwensniveau om zoektermen te hebben"
+    saved_searches_enabled: "Gebruikers toestaan om zoekopdrachten op te slaan"
+    saved_searches_min_trust_level: "Minimaal vertrouwensniveau voor opgeslagen zoekopdrachten"
+    max_saved_searches: "Maximaal aantal opgeslagen zoekopdrachten"
   system_messages:
     saved_searches_notification:
       title: "Nieuwe zoekresultaten"
       subject_template: "Nieuwe zoekresultaten: %{term}"
-      post_link_text: "[**%{title}**, bericht #%{post_number}](%{url})"
+      post_link_text: "[**%{title}**, bericht %{post_number}](%{url})"
       text_body_template: |
         Er zijn nieuwe zoekresultaten gevonden voor **%{term}**!
 
         %{posts}
+  user_notifications:
+    saved_search:
+      title: "Nieuw resultaat voor opgeslagen zoekopdracht"
+      subject_template: "[%{email_prefix}] Nieuw resultaat voor opgeslagen zoekopdracht: %{topic_title}"
+      text_body_template: |
+        Er is een nieuw resultaat gevonden voor een opgeslagen zoekopdracht: **%{saved_search_query}**.
+
+        %{post_url}
