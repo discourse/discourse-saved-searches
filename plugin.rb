@@ -9,26 +9,26 @@
 
 enabled_site_setting :saved_searches_enabled
 
-register_asset 'stylesheets/saved-searches.scss'
+register_asset "stylesheets/saved-searches.scss"
 
 after_initialize do
   module ::SavedSearches
     class Engine < ::Rails::Engine
-      engine_name 'saved_searches'
+      engine_name "saved_searches"
       isolate_namespace SavedSearches
     end
   end
 
-  require_relative 'app/controllers/saved_searches_controller.rb'
-  require_relative 'app/jobs/regular/execute_saved_searches.rb'
-  require_relative 'app/jobs/scheduled/schedule_saved_searches.rb'
-  require_relative 'app/models/saved_search_result.rb'
-  require_relative 'app/models/saved_search.rb'
-  require_relative 'app/serializers/saved_search_serializer.rb'
-  require_relative 'lib/email_user_extensions.rb'
-  require_relative 'lib/guardian_extensions.rb'
-  require_relative 'lib/user_extensions.rb'
-  require_relative 'lib/user_notifications_extensions.rb'
+  require_relative "app/controllers/saved_searches_controller.rb"
+  require_relative "app/jobs/regular/execute_saved_searches.rb"
+  require_relative "app/jobs/scheduled/schedule_saved_searches.rb"
+  require_relative "app/models/saved_search_result.rb"
+  require_relative "app/models/saved_search.rb"
+  require_relative "app/serializers/saved_search_serializer.rb"
+  require_relative "lib/email_user_extensions.rb"
+  require_relative "lib/guardian_extensions.rb"
+  require_relative "lib/user_extensions.rb"
+  require_relative "lib/user_notifications_extensions.rb"
 
   reloadable_patch do
     NotificationEmailer::EmailUser.class_eval { prepend SavedSearches::EmailUserExtensions }
@@ -53,19 +53,15 @@ after_initialize do
     end
   end
 
-  add_to_serializer(:user, :can_use_saved_searches, false) do
-    true
-  end
+  add_to_serializer(:user, :can_use_saved_searches, false) { true }
 
-  add_to_serializer(:user, :include_can_use_saved_searches?) do
-    scope.can_use_saved_searches?
-  end
+  add_to_serializer(:user, :include_can_use_saved_searches?) { scope.can_use_saved_searches? }
 
   add_to_serializer(:user, :saved_searches, false) do
     ActiveModel::ArraySerializer.new(
       object.saved_searches,
       each_serializer: SavedSearchSerializer,
-      scope: scope
+      scope: scope,
     ).as_json
   end
 
@@ -74,14 +70,18 @@ after_initialize do
   end
 
   SavedSearches::Engine.routes.draw do
-    put '/u/:username/preferences/saved-searches' => 'saved_searches#update', constraints: { username: RouteFormat.username }
+    put "/u/:username/preferences/saved-searches" => "saved_searches#update",
+        :constraints => {
+          username: RouteFormat.username,
+        }
   end
 
-  Discourse::Application.routes.prepend do
-    mount ::SavedSearches::Engine, at: '/'
-  end
+  Discourse::Application.routes.prepend { mount ::SavedSearches::Engine, at: "/" }
 
   Discourse::Application.routes.append do
-    get '/u/:username/preferences/saved-searches' => 'users#preferences', constraints: { username: RouteFormat.username }
+    get "/u/:username/preferences/saved-searches" => "users#preferences",
+        :constraints => {
+          username: RouteFormat.username,
+        }
   end
 end

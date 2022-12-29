@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 class SavedSearches::SavedSearchesController < ApplicationController
-  requires_plugin 'discourse-saved-searches'
+  requires_plugin "discourse-saved-searches"
 
   def update
     user = fetch_user_from_params
@@ -24,7 +24,9 @@ class SavedSearches::SavedSearchesController < ApplicationController
         searches << { query: query, frequency: frequency }
       end
       searches = searches.uniq { |s| s[:query] }
-      raise Discourse::InvalidParameters.new(:searches) if searches.size > SiteSetting.max_saved_searches
+      if searches.size > SiteSetting.max_saved_searches
+        raise Discourse::InvalidParameters.new(:searches)
+      end
     end
 
     SavedSearch.transaction do
