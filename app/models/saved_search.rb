@@ -10,12 +10,7 @@ class SavedSearch < ActiveRecord::Base
   after_save :compile_query
 
   def self.frequencies
-    @frequencies ||= Enum.new(
-      immediately: 0,
-      hourly: 1,
-      daily: 2,
-      weekly: 3,
-    )
+    @frequencies ||= Enum.new(immediately: 0, hourly: 1, daily: 2, weekly: 3)
   end
 
   private
@@ -32,7 +27,8 @@ class SavedSearch < ActiveRecord::Base
     if will_save_change_to_query? || self.compiled_query.blank?
       search = Search.new(query, guardian: user.guardian)
       if search.term.present?
-        self.class
+        self
+          .class
           .where(id: self.id)
           .update_all("compiled_query = #{Search.ts_query(term: search.term)}")
       else

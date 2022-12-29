@@ -5,9 +5,7 @@ require "rails_helper"
 describe SavedSearches::SavedSearchesController do
   fab!(:user) { Fabricate(:user) }
 
-  before do
-    SiteSetting.saved_searches_enabled = true
-  end
+  before { SiteSetting.saved_searches_enabled = true }
 
   describe "#update" do
     it "does not work when not logged in" do
@@ -16,15 +14,28 @@ describe SavedSearches::SavedSearchesController do
     end
 
     it "can create and update saved searches" do
-      saved_search = Fabricate(:saved_search, user: user, query: "discount", frequency: SavedSearch.frequencies[:daily])
+      saved_search =
+        Fabricate(
+          :saved_search,
+          user: user,
+          query: "discount",
+          frequency: SavedSearch.frequencies[:daily],
+        )
       sign_in(user)
 
-      put "/u/#{user.username}/preferences/saved-searches.json", params: {
-        searches: {
-          0 => { query: "discount", frequency: "weekly" },
-          1 => { query: "discourse", frequency: "immediately" }
-        }
-      }
+      put "/u/#{user.username}/preferences/saved-searches.json",
+          params: {
+            searches: {
+              0 => {
+                query: "discount",
+                frequency: "weekly",
+              },
+              1 => {
+                query: "discourse",
+                frequency: "immediately",
+              },
+            },
+          }
 
       expect(response.status).to eq(200)
       expect(user.saved_searches.size).to eq(2)
