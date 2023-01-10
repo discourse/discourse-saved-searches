@@ -8,6 +8,7 @@ tr_TR:
   site_settings:
     saved_searches_enabled: "Kullanıcıların kayıtlı aramaları yapmasına izin ver"
     saved_searches_min_trust_level: "Kaydedilmiş aramalar için minimum güven seviyesi"
+    max_saved_searches: "Maksimum kayıtlı arama sayısı"
   system_messages:
     saved_searches_notification:
       title: "Yeni Arama Sonuçları"
@@ -17,3 +18,11 @@ tr_TR:
         ** %{term} ** için yeni sonuç bulundu!
 
         %{posts}
+  user_notifications:
+    saved_search:
+      title: "Yeni Kayıtlı Arama Sonucu"
+      subject_template: "[%{email_prefix}] Yeni Kayıtlı Arama Sonucu: %{topic_title}"
+      text_body_template: |
+        Kayıtlı arama **%{saved_search_query}** için yeni bir sonuç bulundu.
+
+        %{post_url}
