@@ -8,3 +8,13 @@ tr_TR:
   js:
     saved_searches:
       title: "Kaydedilmiş Aramalar"
+      description: "%{count} adede kadar arama kaydedin ve yeni arama sonuçları hakkında bildirim alın. Kaydedilen her arama, bildirimler için farklı bir sıklığa sahip olabilir."
+      none: "Kayıtlı arama tanımlanmadı."
+      add: "Ekle"
+      remove: "Kaldır"
+      notification: "<span></span> %{description}"
+      frequency_options:
+        immediately: "Hemen"
+        hourly: "Saatlik"
+        daily: "Günlük"
+        weekly: "Haftalık"
