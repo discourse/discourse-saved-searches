@@ -6,8 +6,8 @@
 
 tr_TR:
   site_settings:
-    saved_searches_enabled: "Kullanıcıların kayıtlı aramaları yapmasına izin ver"
-    saved_searches_min_trust_level: "Kaydedilmiş aramalar için minimum güven seviyesi"
+    saved_searches_enabled: "Kullanıcıların kayıtlı arama yapmasına izin verin"
+    saved_searches_min_trust_level: "Kayıtlı aramalar için minimum güven seviyesi"
     max_saved_searches: "Maksimum kayıtlı arama sayısı"
   system_messages:
     saved_searches_notification:
@@ -15,7 +15,7 @@ tr_TR:
       subject_template: "Yeni Arama Sonuçları: %{term}"
       post_link_text: "[** %{title} **, gönderi # %{post_number}] (%{url})"
       text_body_template: |
-        ** %{term} ** için yeni sonuç bulundu!
+        **%{term}** için yeni sonuçlar bulundu!
 
         %{posts}
   user_notifications:
