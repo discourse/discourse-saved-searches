@@ -8,3 +8,8 @@ ur:
   js:
     saved_searches:
       title: "محفوظ کردہ سرچز"
+      add: "اضافہ کریں"
+      remove: "خارج کریں"
+      frequency_options:
+        daily: "روزانہ"
+        weekly: "ہفتہ وار"

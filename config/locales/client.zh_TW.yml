@@ -8,3 +8,8 @@ zh_TW:
   js:
     saved_searches:
       title: "已儲存的搜尋"
+      add: "加入"
+      remove: "移除"
+      frequency_options:
+        daily: "日"
+        weekly: "周"

@@ -5,3 +5,10 @@
 # https://translate.discourse.org/
 
 th:
+  js:
+    saved_searches:
+      add: "เพิ่ม"
+      remove: "ลบ"
+      frequency_options:
+        daily: "รายวัน"
+        weekly: "รายสัปดาห์"

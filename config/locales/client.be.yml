@@ -5,3 +5,10 @@
 # https://translate.discourse.org/
 
 be:
+  js:
+    saved_searches:
+      add: "дадаць"
+      remove: "выдаліць"
+      frequency_options:
+        daily: "штодня"
+        weekly: "штотыдзень"

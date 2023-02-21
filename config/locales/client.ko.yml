@@ -8,3 +8,8 @@ ko:
   js:
     saved_searches:
       title: "저장된 검색"
+      add: "추가"
+      remove: "제거"
+      frequency_options:
+        daily: "일"
+        weekly: "주"

@@ -8,3 +8,8 @@ hy:
   js:
     saved_searches:
       title: "Պահպանված Որոնումներ"
+      add: "Ավելացնել"
+      remove: "Հեռացնել"
+      frequency_options:
+        daily: "Օրվա Ընթացքում"
+        weekly: "Շաբաթվա Ընթացքում"

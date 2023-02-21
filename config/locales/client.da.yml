@@ -8,3 +8,8 @@ da:
   js:
     saved_searches:
       title: "Gemte Søgninger"
+      add: "Tilføj"
+      remove: "Fjern"
+      frequency_options:
+        daily: "Dagligt"
+        weekly: "Ugentligt"

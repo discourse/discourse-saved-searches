@@ -8,3 +8,8 @@ hu:
   js:
     saved_searches:
       title: "Mentett keresések"
+      add: "Hozzáad"
+      remove: "Eltávolítás"
+      frequency_options:
+        daily: "Napi"
+        weekly: "Heti"

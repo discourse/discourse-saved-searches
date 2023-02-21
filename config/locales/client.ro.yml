@@ -5,3 +5,10 @@
 # https://translate.discourse.org/
 
 ro:
+  js:
+    saved_searches:
+      add: "Adaugă"
+      remove: "Elimină"
+      frequency_options:
+        daily: "Zilnic"
+        weekly: "Săptămânal"

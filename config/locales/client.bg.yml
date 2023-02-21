@@ -8,3 +8,8 @@ bg:
   js:
     saved_searches:
       title: "Запазени търсения"
+      add: "Добави "
+      remove: "Премахване"
+      frequency_options:
+        daily: "Дневно"
+        weekly: "Седмично"

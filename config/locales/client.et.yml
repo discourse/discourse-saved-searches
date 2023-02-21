@@ -8,3 +8,8 @@ et:
   js:
     saved_searches:
       title: "Salvestatud otsingud"
+      add: "isa"
+      remove: "Eemalda"
+      frequency_options:
+        daily: "Igapäevaselt"
+        weekly: "Iganädalaselt"

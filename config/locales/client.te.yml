@@ -5,3 +5,7 @@
 # https://translate.discourse.org/
 
 te:
+  js:
+    saved_searches:
+      add: "కలుపు"
+      remove: "తొలగించు"
