@@ -8,3 +8,8 @@ nb_NO:
   js:
     saved_searches:
       title: "Lagrede søk"
+      add: "Legg til"
+      remove: "Fjern"
+      frequency_options:
+        daily: "Daglig"
+        weekly: "Ukentlig"

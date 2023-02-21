@@ -8,3 +8,8 @@ cs:
   js:
     saved_searches:
       title: "Uložená hledání"
+      add: "přidat"
+      remove: "Smazat"
+      frequency_options:
+        daily: "Denně"
+        weekly: "Týdně"

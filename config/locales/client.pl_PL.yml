@@ -8,3 +8,8 @@ pl_PL:
   js:
     saved_searches:
       title: "Zapisane wyszukiwania"
+      add: "Dodaj"
+      remove: "Usuń"
+      frequency_options:
+        daily: "Dziennie"
+        weekly: "Tygodniowo"

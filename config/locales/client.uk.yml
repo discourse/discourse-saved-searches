@@ -8,3 +8,8 @@ uk:
   js:
     saved_searches:
       title: "Збережені пошукові запити"
+      add: "Додати"
+      remove: "Вилучити"
+      frequency_options:
+        daily: "За день"
+        weekly: "Щотижня"

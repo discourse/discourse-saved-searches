@@ -5,3 +5,10 @@
 # https://translate.discourse.org/
 
 gl:
+  js:
+    saved_searches:
+      add: "Engadir"
+      remove: "Retirar"
+      frequency_options:
+        daily: "Diario"
+        weekly: "Semanal"

@@ -8,3 +8,8 @@ sw:
   js:
     saved_searches:
       title: "Utafiti Ulihifadhiwa"
+      add: "ongeza"
+      remove: "Ondoa"
+      frequency_options:
+        daily: "Kila siku"
+        weekly: "Kila wiki"

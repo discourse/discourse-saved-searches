@@ -5,3 +5,10 @@
 # https://translate.discourse.org/
 
 sq:
+  js:
+    saved_searches:
+      add: "Shto"
+      remove: "Hiq"
+      frequency_options:
+        daily: "Ditore"
+        weekly: "Javore"

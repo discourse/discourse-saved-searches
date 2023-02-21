@@ -5,3 +5,10 @@
 # https://translate.discourse.org/
 
 sr:
+  js:
+    saved_searches:
+      add: "Dodaj"
+      remove: "Ukloni"
+      frequency_options:
+        daily: "Top dnevne"
+        weekly: "Top nedeljne"

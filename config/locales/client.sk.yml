@@ -8,3 +8,8 @@ sk:
   js:
     saved_searches:
       title: "Uložené hľadania"
+      add: "Pridať"
+      remove: "Odstrániť"
+      frequency_options:
+        daily: "Denne"
+        weekly: "Týždenne"

@@ -8,3 +8,8 @@ vi:
   js:
     saved_searches:
       title: "Tìm kiếm đã lưu"
+      add: "Thêm"
+      remove: "Xoá"
+      frequency_options:
+        daily: "hằng ngày"
+        weekly: "Hàng tuần"

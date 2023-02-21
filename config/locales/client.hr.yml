@@ -8,3 +8,8 @@ hr:
   js:
     saved_searches:
       title: "Sačuvane pretrage"
+      add: "Dodaj"
+      remove: "Ukloni"
+      frequency_options:
+        daily: "Dnevno"
+        weekly: "Tjedno"

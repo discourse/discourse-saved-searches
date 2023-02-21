@@ -8,3 +8,8 @@ sl:
   js:
     saved_searches:
       title: "Shranjena iskanja"
+      add: "Dodaj"
+      remove: "Odstrani"
+      frequency_options:
+        daily: "Dnevno"
+        weekly: "Tedensko"

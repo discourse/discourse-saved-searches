@@ -5,3 +5,10 @@
 # https://translate.discourse.org/
 
 bs_BA:
+  js:
+    saved_searches:
+      add: "Add"
+      remove: "Ukloni"
+      frequency_options:
+        daily: "Dnevno"
+        weekly: "Sedmično"

@@ -5,3 +5,7 @@
 # https://translate.discourse.org/
 
 id:
+  js:
+    saved_searches:
+      add: "Menambahkan"
+      remove: "Hapus"

@@ -5,3 +5,10 @@
 # https://translate.discourse.org/
 
 lv:
+  js:
+    saved_searches:
+      add: "Pievienot"
+      remove: "Atcelt"
+      frequency_options:
+        daily: "Dienas"
+        weekly: "Nedēļas"

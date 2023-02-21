@@ -8,3 +8,8 @@ el:
   js:
     saved_searches:
       title: "Αποθηκευμένες αναζητήσεις"
+      add: "Προσθήκη"
+      remove: "Αφαίρεση"
+      frequency_options:
+        daily: "Ημερήσιες"
+        weekly: "Εβδομαδιαίες"

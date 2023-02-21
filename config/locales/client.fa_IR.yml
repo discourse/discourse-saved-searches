@@ -8,3 +8,8 @@ fa_IR:
   js:
     saved_searches:
       title: "جستجوهای ذخیره شده"
+      add: "اضافه کردن"
+      remove: "پاک کردن"
+      frequency_options:
+        daily: "روزانه"
+        weekly: "هفتگی"

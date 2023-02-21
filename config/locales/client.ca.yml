@@ -8,3 +8,8 @@ ca:
   js:
     saved_searches:
       title: "Cerques desades"
+      add: "Afegeix"
+      remove: "Elimina"
+      frequency_options:
+        daily: "Diàriament"
+        weekly: "Setmanalment"

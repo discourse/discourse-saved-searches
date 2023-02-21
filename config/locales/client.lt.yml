@@ -8,3 +8,8 @@ lt:
   js:
     saved_searches:
       title: "Išsaugotos paieškos"
+      add: "Pridėti"
+      remove: "Pašalinti"
+      frequency_options:
+        daily: "Kasdien"
+        weekly: "Kas savaitę"

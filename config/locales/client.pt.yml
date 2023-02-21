@@ -8,3 +8,8 @@ pt:
   js:
     saved_searches:
       title: "Pesquisas Guardadas"
+      add: "Adicionar"
+      remove: "Remover"
+      frequency_options:
+        daily: "Diário"
+        weekly: "Semanal"
