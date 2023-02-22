@@ -20,12 +20,9 @@ acceptance("Saved Searches", function (needs) {
   test("Saved Search preferences", async (assert) => {
     await visit("/u/eviltrout/preferences");
 
-    assert.ok(
-      exists(".preferences-nav .saved-searches"),
-      "saved search section exists"
-    );
+    assert.ok(exists(".saved-searches"), "saved search section exists");
 
-    await click(".preferences-nav .saved-searches a");
+    await click(".saved-searches a");
 
     assert.ok(
       exists(".saved-searches-controls .add-saved-search"),
