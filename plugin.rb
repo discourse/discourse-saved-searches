@@ -53,20 +53,22 @@ after_initialize do
     end
   end
 
-  add_to_serializer(:user, :can_use_saved_searches, false) { true }
+  add_to_serializer(
+    :user,
+    :can_use_saved_searches,
+    include_condition: -> { scope.can_use_saved_searches? },
+  ) { true }
 
-  add_to_serializer(:user, :include_can_use_saved_searches?) { scope.can_use_saved_searches? }
-
-  add_to_serializer(:user, :saved_searches, false) do
+  add_to_serializer(
+    :user,
+    :saved_searches,
+    include_condition: -> { scope.can_use_saved_searches? && scope.can_edit?(object) },
+  ) do
     ActiveModel::ArraySerializer.new(
       object.saved_searches,
       each_serializer: SavedSearchSerializer,
       scope: scope,
     ).as_json
-  end
-
-  add_to_serializer(:user, :include_saved_searches?) do
-    scope.can_use_saved_searches? && scope.can_edit?(object)
   end
 
   SavedSearches::Engine.routes.draw do
