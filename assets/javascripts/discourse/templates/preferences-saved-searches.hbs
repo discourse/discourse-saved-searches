@@ -9,18 +9,18 @@
   {{#each savedSearches as |savedSearch|}}
     <div class="controls saved-searches-controls saved-search">
       {{input type="text" value=savedSearch.query}}
-      {{combo-box
-        content=savedSearchFrequencyOptions
-        valueProperty="value"
-        value=savedSearch.frequency
-        onChange=(action (mut savedSearch.frequency))
-      }}
-      {{d-button
-        class="remove-saved-search"
-        icon="trash-alt"
-        title="saved_searches.remove"
-        action=(action "removeSavedSearch" savedSearch)
-      }}
+      <ComboBox
+        @content={{savedSearchFrequencyOptions}}
+        @valueProperty="value"
+        @value={{savedSearch.frequency}}
+        @onChange={{action (mut savedSearch.frequency)}}
+      />
+      <DButton
+        @class="remove-saved-search"
+        @icon="trash-alt"
+        @title="saved_searches.remove"
+        @action={{action "removeSavedSearch" savedSearch}}
+      />
     </div>
   {{else}}
     <div class="controls saved-searches-controls">
@@ -30,12 +30,12 @@
 
   {{#if canAddSavedSearch}}
     <div class="controls saved-searches-controls">
-      {{d-button
-        class="add-saved-search"
-        icon="plus"
-        label="saved_searches.add"
-        action=(action "addSavedSearch")
-      }}
+      <DButton
+        @class="add-saved-search"
+        @icon="plus"
+        @label="saved_searches.add"
+        @action={{action "addSavedSearch"}}
+      />
     </div>
   {{/if}}
 </div>
