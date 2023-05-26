@@ -16,7 +16,7 @@
         @onChange={{action (mut savedSearch.frequency)}}
       />
       <DButton
-        @class="remove-saved-search"
+        class="remove-saved-search"
         @icon="trash-alt"
         @title="saved_searches.remove"
         @action={{action "removeSavedSearch" savedSearch}}
@@ -31,7 +31,7 @@
   {{#if canAddSavedSearch}}
     <div class="controls saved-searches-controls">
       <DButton
-        @class="add-saved-search"
+        class="add-saved-search"
         @icon="plus"
         @label="saved_searches.add"
         @action={{action "addSavedSearch"}}
