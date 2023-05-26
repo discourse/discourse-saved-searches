@@ -8,7 +8,7 @@
 
   {{#each savedSearches as |savedSearch|}}
     <div class="controls saved-searches-controls saved-search">
-      {{input type="text" value=savedSearch.query}}
+      <Input @type="text" @value={{savedSearch.query}} />
       <ComboBox
         @content={{savedSearchFrequencyOptions}}
         @valueProperty="value"
@@ -40,4 +40,4 @@
   {{/if}}
 </div>
 
-{{save-controls model=this action=(action "save") saved=saved}}
+<SaveControls @model={{this}} @action={{action "save"}} @saved={{saved}} />
