@@ -8,8 +8,13 @@ pl_PL:
   js:
     saved_searches:
       title: "Zapisane wyszukiwania"
+      description: "Zapisz do %{count} wyszukiwań i otrzymuj powiadomienia o nowych wynikach wyszukiwania. Każde zapisane wyszukiwanie może mieć inną częstotliwość powiadomień."
+      none: "Nie zdefiniowano zapisanego wyszukiwania."
       add: "Dodaj"
       remove: "Usuń"
+      notification: "<span></span> %{description}"
       frequency_options:
+        immediately: "Natychmiast"
+        hourly: "Co godzinę"
         daily: "Dziennie"
         weekly: "Tygodniowo"
