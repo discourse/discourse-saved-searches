@@ -8,6 +8,7 @@ pl_PL:
   site_settings:
     saved_searches_enabled: "Pozwól użytkownikom na zapisywanie wyszukań"
     saved_searches_min_trust_level: "Minimalny poziom zaufania pozwalający na zapisywanie wyszukiwania"
+    max_saved_searches: "Maksymalna liczba zapisanych wyszukiwań"
   system_messages:
     saved_searches_notification:
       title: "Nowe wyniki wyszukiwania"
@@ -17,3 +18,11 @@ pl_PL:
         Dla zapytania **%{term}** zostały znalezione nowe wyniki!
 
         %{posts}
+  user_notifications:
+    saved_search:
+      title: "Nowy zapisany wynik wyszukiwania"
+      subject_template: "[%{email_prefix}] Nowy zapisany wynik wyszukiwania: %{topic_title}"
+      text_body_template: |
+        Znaleziono nowy wynik dla zapisanego wyszukiwania **%{saved_search_query}**.
+
+        %{post_url}
