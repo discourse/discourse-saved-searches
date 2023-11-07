@@ -1,7 +1,8 @@
 # frozen_string_literal: true
 
 # name: discourse-saved-searches
-# about: Saved Searches Plugin
+# about: Allows users to save searches and be notified when any new topics or posts match the search criteria.
+# meta_topic_id: 67901
 # version: 0.1
 # authors: Neil Lalonde
 # url: https://github.com/discourse/discourse-saved-searches
