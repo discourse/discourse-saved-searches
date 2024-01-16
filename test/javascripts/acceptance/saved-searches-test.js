@@ -1,10 +1,10 @@
+import { click, fillIn, visit } from "@ember/test-helpers";
+import { test } from "qunit";
 import {
   acceptance,
   count,
   exists,
 } from "discourse/tests/helpers/qunit-helpers";
-import { click, fillIn, visit } from "@ember/test-helpers";
-import { test } from "qunit";
 
 acceptance("Saved Searches", function (needs) {
   needs.user({ can_use_saved_searches: true });
