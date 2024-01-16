@@ -6,7 +6,6 @@
 # version: 0.1
 # authors: Neil Lalonde
 # url: https://github.com/discourse/discourse-saved-searches
-# transpile_js: true
 
 enabled_site_setting :saved_searches_enabled
 
