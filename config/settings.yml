@@ -4,6 +4,14 @@ plugins:
   saved_searches_min_trust_level:
     default: 1
     enum: 'TrustLevelSetting'
+    hidden: true
+  saved_searches_allowed_groups:
+    default: "11" # auto group trust_level_1
+    type: group_list
+    client: true
+    allow_any: false
+    refresh: true
+    validator: "AtLeastOneGroupValidator"
   max_saved_searches:
     default: 5
     client: true

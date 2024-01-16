@@ -5,7 +5,7 @@ require "rails_helper"
 describe Jobs::ExecuteSavedSearches do
   subject(:job) { described_class.new }
 
-  fab!(:user) { Fabricate(:user, trust_level: 1) }
+  fab!(:user) { Fabricate(:user, trust_level: TrustLevel[1], refresh_auto_groups: true) }
 
   before do
     SearchIndexer.enable
@@ -53,8 +53,8 @@ describe Jobs::ExecuteSavedSearches do
         expect { job.execute(user_id: user.id) }.to change { Notification.count }.by(3)
       end
 
-      it "does nothing if trust level is too low" do
-        SiteSetting.saved_searches_min_trust_level = 2
+      it "does nothing if the user is not in the required group" do
+        SiteSetting.saved_searches_allowed_groups = Group::AUTO_GROUPS[:trust_level_2]
 
         expect { job.execute(user_id: user.id) }.to_not change { Topic.count }
       end
