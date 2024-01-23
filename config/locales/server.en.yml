@@ -5,6 +5,9 @@ en:
     saved_searches_allowed_groups: "Allow users in these groups to have saved searches"
     max_saved_searches: "Maximum number of saved searches"
 
+    keywords:
+      saved_searches_allowed_groups: "saved_searches_min_trust_level"
+
   system_messages:
     saved_searches_notification:
       title: "New Search Results"
