@@ -8,7 +8,10 @@ he:
   site_settings:
     saved_searches_enabled: "לאפשר למשתמשים לשמור חיפושים"
     saved_searches_min_trust_level: "דרגת האמון המזערית לקבלת האפשרות לשמירת חיפושים"
+    saved_searches_allowed_groups: "לאפשר למשתמשים בקבוצות האלו לשמור חיפושים"
     max_saved_searches: "מספר החיפושים המרבי שנשמר"
+    keywords:
+      saved_searches_allowed_groups: "saved_searches_min_trust_level (דרגת אמון מזערית לשמירת חיפושים)"
   system_messages:
     saved_searches_notification:
       title: "תוצאות חיפוש חדשות"

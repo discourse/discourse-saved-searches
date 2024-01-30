@@ -8,7 +8,10 @@ pl_PL:
   site_settings:
     saved_searches_enabled: "Pozwól użytkownikom na zapisywanie wyszukań"
     saved_searches_min_trust_level: "Minimalny poziom zaufania pozwalający na zapisywanie wyszukiwania"
+    saved_searches_allowed_groups: "Zezwalaj użytkownikom w tych grupach na zapisywanie wyszukiwań."
     max_saved_searches: "Maksymalna liczba zapisanych wyszukiwań"
+    keywords:
+      saved_searches_allowed_groups: "saved_searches_min_trust_level"
   system_messages:
     saved_searches_notification:
       title: "Nowe wyniki wyszukiwania"
