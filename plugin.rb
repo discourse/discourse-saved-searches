@@ -31,10 +31,10 @@ after_initialize do
   require_relative "lib/user_notifications_extensions.rb"
 
   reloadable_patch do
-    NotificationEmailer::EmailUser.class_eval { prepend SavedSearches::EmailUserExtensions }
-    Guardian.class_eval { prepend SavedSearches::GuardianExtensions }
-    User.class_eval { prepend SavedSearches::UserExtensions }
-    UserNotifications.class_eval { prepend SavedSearches::UserNotificationsExtensions }
+    NotificationEmailer::EmailUser.prepend(SavedSearches::EmailUserExtensions)
+    Guardian.prepend(SavedSearches::GuardianExtensions)
+    User.prepend(SavedSearches::UserExtensions)
+    UserNotifications.prepend(SavedSearches::UserNotificationsExtensions)
   end
 
   register_search_advanced_filter(/^min-post-id:(.*)$/i) do |posts, match|
