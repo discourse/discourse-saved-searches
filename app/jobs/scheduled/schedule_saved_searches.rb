@@ -5,6 +5,8 @@ module Jobs
     every 5.minutes
 
     def execute(args)
+      return if !SiteSetting.saved_searches_enabled
+
       SavedSearch
         .distinct
         .pluck(:user_id)
