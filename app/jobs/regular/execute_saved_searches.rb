@@ -5,13 +5,12 @@ module Jobs
     sidekiq_options queue: "low"
 
     def execute(args)
+      return if !SiteSetting.saved_searches_enabled
+
       user = User.find_by(id: args[:user_id])
       return if !user || !user.active? || user.suspended? || !user.guardian.can_use_saved_searches?
 
       user.saved_searches.each do |saved_search|
-        time_1 = Process.clock_gettime(Process::CLOCK_MONOTONIC)
-        time_2 = nil
-
         # Skip saved search if it is not due yet
         if saved_search.frequency != SavedSearch.frequencies[:immediately]
           case saved_search.frequency
@@ -41,6 +40,8 @@ module Jobs
             compiled_query: saved_search.compiled_query,
           }
 
+          time_1 = Process.clock_gettime(Process::CLOCK_MONOTONIC)
+
           result = DB.query_single(<<~SQL, params).first
             SELECT 1
             FROM posts
@@ -56,12 +57,14 @@ module Jobs
           if !result
             if SiteSetting.debug_saved_searches?
               Rails.logger.warn(
-                "SQL-only search for user #{user.id} and saved search #{saved_search.id} took #{time_2 - time_1}s. No results were found",
+                "For user #{user.id} and saved search #{saved_search.id}, SQL-only search took #{time_2 - time_1}s. No results were found",
               )
             end
             next saved_search.save!
           end
         end
+
+        time_3 = Process.clock_gettime(Process::CLOCK_MONOTONIC)
 
         # Perform a full search with all advanced filter and permission
         search =
@@ -73,11 +76,15 @@ module Jobs
           )
         results = search.execute
 
-        time_3 = Process.clock_gettime(Process::CLOCK_MONOTONIC)
+        time_4 = Process.clock_gettime(Process::CLOCK_MONOTONIC)
 
         if SiteSetting.debug_saved_searches?
+          time_1, time_2 = time_3, time_4
+
           Rails.logger.warn(
-            "SQL-only search for user #{user.id} and saved search #{saved_search.id} took #{time_2 - time_1}s, full search took #{time_3 - time_2}. Found #{results.posts.size} posts",
+            "For user #{user.id} and saved search #{saved_search.id}" +
+              (time_1 && time_2 ? ", SQL-only search took #{time_2 - time_1}s" : "") +
+              ", full search took #{time_4 - time_3}. Found #{results.posts.size} posts",
           )
         end
 
