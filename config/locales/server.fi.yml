@@ -8,7 +8,10 @@ fi:
   site_settings:
     saved_searches_enabled: "Salli käyttäjien tallentaa hakuja"
     saved_searches_min_trust_level: "Vähimmäisluottamustaso, jolla voi tallentaa hakuja"
+    saved_searches_allowed_groups: "Salli tallennetut haut näiden ryhmien käyttäjille"
     max_saved_searches: "Tallennettujen hakujen enimmäismäärä"
+    keywords:
+      saved_searches_allowed_groups: "saved_searches_min_trust_level"
   system_messages:
     saved_searches_notification:
       title: "Uusia halutuloksia"

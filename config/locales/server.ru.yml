@@ -8,7 +8,10 @@ ru:
   site_settings:
     saved_searches_enabled: "Разрешить пользователям сохранять поисковые запросы"
     saved_searches_min_trust_level: "Минимальный уровень доверия для сохранения поисковых запросов"
+    saved_searches_allowed_groups: "Разрешить пользователям в этих группах сохранять результаты поиска"
     max_saved_searches: "Максимальное количество сохраняемых поисковых запросов"
+    keywords:
+      saved_searches_allowed_groups: "saved_searches_min_trust_level"
   system_messages:
     saved_searches_notification:
       title: "Новый результат поиска"
