@@ -8,7 +8,10 @@ ar:
   site_settings:
     saved_searches_enabled: "السماح للمستخدمين بحفظ عمليات البحث"
     saved_searches_min_trust_level: "الحد الأدنى لمستوى الثقة لحفظ عمليات البحث"
+    saved_searches_allowed_groups: "السماح للمستخدمين في هذه المجموعات بحفظ عمليات البحث"
     max_saved_searches: "أقصى عدد من عمليات البحث المحفوظة"
+    keywords:
+      saved_searches_allowed_groups: "saved_searches_min_trust_level"
   system_messages:
     saved_searches_notification:
       title: "نتائج بحث جديدة"

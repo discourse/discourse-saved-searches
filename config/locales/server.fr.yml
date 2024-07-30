@@ -8,7 +8,10 @@ fr:
   site_settings:
     saved_searches_enabled: "Permettre aux utilisateurs d'enregistrer des recherches"
     saved_searches_min_trust_level: "Niveau de confiance minimal requis pour enregistrer des recherches"
+    saved_searches_allowed_groups: "Autoriser les utilisateurs de ces groupes à enregistrer leurs recherches"
     max_saved_searches: "Nombre maximal de recherches enregistrées"
+    keywords:
+      saved_searches_allowed_groups: "saved_searches_min_trust_level"
   system_messages:
     saved_searches_notification:
       title: "Nouveaux résultats de recherche"

@@ -8,10 +8,10 @@ tr_TR:
   site_settings:
     saved_searches_enabled: "Kullanıcıların kayıtlı arama yapmasına izin verin"
     saved_searches_min_trust_level: "Kayıtlı aramalar için minimum güven seviyesi"
-    saved_searches_allowed_groups: "Bu gruplardaki kullanıcıların kayıtlı aramalara sahip olmasına izin ver"
+    saved_searches_allowed_groups: "Bu gruplardaki kullanıcıların kayıtlı aramalara sahip olmalarına izin ver"
     max_saved_searches: "Maksimum kayıtlı arama sayısı"
     keywords:
-      saved_searches_allowed_groups: "save_searches_min_trust_level"
+      saved_searches_allowed_groups: "saved_searches_min_trust_level"
   system_messages:
     saved_searches_notification:
       title: "Yeni Arama Sonuçları"

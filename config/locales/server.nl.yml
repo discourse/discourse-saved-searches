@@ -8,7 +8,10 @@ nl:
   site_settings:
     saved_searches_enabled: "Gebruikers toestaan om zoekopdrachten op te slaan"
     saved_searches_min_trust_level: "Minimaal vertrouwensniveau voor opgeslagen zoekopdrachten"
+    saved_searches_allowed_groups: "Gebuikers in deze groepen toestaan om opgeslagen zoekopdrachten te hebben"
     max_saved_searches: "Maximaal aantal opgeslagen zoekopdrachten"
+    keywords:
+      saved_searches_allowed_groups: "saved_searches_min_trust_level"
   system_messages:
     saved_searches_notification:
       title: "Nieuwe zoekresultaten"
