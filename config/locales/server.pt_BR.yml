@@ -8,7 +8,10 @@ pt_BR:
   site_settings:
     saved_searches_enabled: "Permitir que usuários tenham pesquisas salvas"
     saved_searches_min_trust_level: "Nível de confiança mínimo para ter pesquisas salvas"
+    saved_searches_allowed_groups: "Permitir que os(as) usuários(as) nestes grupos tenham pesquisas salvas"
     max_saved_searches: "Número máximo de pesquisas salvas"
+    keywords:
+      saved_searches_allowed_groups: "saved_searches_min_trust_level"
   system_messages:
     saved_searches_notification:
       title: "Novos Resultados de Pesquisa"

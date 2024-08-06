@@ -8,7 +8,10 @@ ja:
   site_settings:
     saved_searches_enabled: "保存された検索の使用をユーザーに許可する"
     saved_searches_min_trust_level: "保存された検索を使用できる最低信頼レベル"
+    saved_searches_allowed_groups: "これらのグループのユーザーに検索の保存を許可する"
     max_saved_searches: "保存された検索の最大件数"
+    keywords:
+      saved_searches_allowed_groups: "saved_searches_min_trust_level"
   system_messages:
     saved_searches_notification:
       title: "新しい検索結果"
