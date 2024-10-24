@@ -46,6 +46,7 @@ end
 #  user_id          :integer          not null
 #  query            :string           not null
 #  compiled_query   :string
+#  frequency        :integer          not null
 #  last_post_id     :integer          not null
 #  last_searched_at :datetime         not null
 #  created_at       :datetime         not null
