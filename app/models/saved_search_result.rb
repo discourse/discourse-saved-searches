@@ -13,7 +13,7 @@ end
 #  id              :bigint           not null, primary key
 #  saved_search_id :integer          not null
 #  post_id         :integer          not null
-#  notification_id :integer
+#  notification_id :bigint
 #  created_at      :datetime         not null
 #  updated_at      :datetime         not null
 #
