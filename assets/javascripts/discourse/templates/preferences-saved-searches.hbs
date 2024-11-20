@@ -3,14 +3,14 @@
 
   <p>{{i18n
       "saved_searches.description"
-      count=siteSettings.max_saved_searches
+      count=this.siteSettings.max_saved_searches
     }}</p>
 
-  {{#each savedSearches as |savedSearch|}}
+  {{#each this.savedSearches as |savedSearch|}}
     <div class="controls saved-searches-controls saved-search">
       <Input @type="text" @value={{savedSearch.query}} />
       <ComboBox
-        @content={{savedSearchFrequencyOptions}}
+        @content={{this.savedSearchFrequencyOptions}}
         @valueProperty="value"
         @value={{savedSearch.frequency}}
         @onChange={{action (mut savedSearch.frequency)}}
@@ -28,7 +28,7 @@
     </div>
   {{/each}}
 
-  {{#if canAddSavedSearch}}
+  {{#if this.canAddSavedSearch}}
     <div class="controls saved-searches-controls">
       <DButton
         class="add-saved-search"
@@ -40,4 +40,4 @@
   {{/if}}
 </div>
 
-<SaveControls @model={{this}} @action={{action "save"}} @saved={{saved}} />
+<SaveControls @model={{this}} @action={{action "save"}} @saved={{this.saved}} />
