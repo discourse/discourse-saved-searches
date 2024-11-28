@@ -51,7 +51,7 @@ acceptance("Saved Searches", function (needs) {
     );
 
     await fillIn(".saved-searches-controls input", "ballista");
-    assert.ok(!exists(".saved"), "it hasn't been saved yet");
+    assert.notOk(exists(".saved"), "it hasn't been saved yet");
 
     await click(".save-changes");
     assert.ok(exists(".saved"), "it displays the saved message");
