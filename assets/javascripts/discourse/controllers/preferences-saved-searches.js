@@ -6,16 +6,13 @@ import { propertyLessThan } from "discourse/lib/computed";
 import discourseComputed from "discourse-common/utils/decorators";
 import I18n from "I18n";
 
-export default Controller.extend({
-  savedSearches: null,
+export default class PreferencesSavedSearchesController extends Controller {
+  savedSearches = null;
+  isSaving = false;
+  saved = false;
 
-  isSaving: false,
-  saved: false,
-
-  canAddSavedSearch: propertyLessThan(
-    "savedSearches.length",
-    "siteSettings.max_saved_searches"
-  ),
+  @propertyLessThan("savedSearches.length", "siteSettings.max_saved_searches")
+  canAddSavedSearch;
 
   @discourseComputed
   savedSearchFrequencyOptions() {
@@ -37,17 +34,17 @@ export default Controller.extend({
         value: "weekly",
       },
     ];
-  },
+  }
 
   @action
   addSavedSearch() {
     this.savedSearches.pushObject({ query: "", frequency: "daily" });
-  },
+  }
 
   @action
   removeSavedSearch(savedSearch) {
     this.savedSearches.removeObject(savedSearch);
-  },
+  }
 
   @action
   save() {
@@ -70,5 +67,5 @@ export default Controller.extend({
       )
       .catch(popupAjaxError)
       .finally(() => this.set("isSaving", false));
-  },
-});
+  }
+}

@@ -1,8 +1,8 @@
 import { service } from "@ember/service";
 import RestrictedUserRoute from "discourse/routes/restricted-user";
 
-export default RestrictedUserRoute.extend({
-  router: service(),
+export default class PreferencesSavedSearches extends RestrictedUserRoute {
+  @service router;
 
   setupController(controller, model) {
     if (!model.can_use_saved_searches) {
@@ -13,5 +13,5 @@ export default RestrictedUserRoute.extend({
       model,
       savedSearches: model.saved_searches || [],
     });
-  },
-});
+  }
+}
