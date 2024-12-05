@@ -5,7 +5,7 @@ export default {
 
   initialize() {
     withPluginApi("0.12.0", (api) => {
-      api.replaceIcon("notification.saved_searches.notification", "search");
+      api.replaceIcon("notification.saved_magnifying-glasses.notification", "search");
     });
   },
 };
