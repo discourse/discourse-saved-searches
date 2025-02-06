@@ -3,8 +3,8 @@ import { action } from "@ember/object";
 import { ajax } from "discourse/lib/ajax";
 import { popupAjaxError } from "discourse/lib/ajax-error";
 import { propertyLessThan } from "discourse/lib/computed";
-import discourseComputed from "discourse-common/utils/decorators";
-import I18n from "I18n";
+import discourseComputed from "discourse/lib/decorators";
+import { i18n } from "discourse-i18n";
 
 export default class PreferencesSavedSearchesController extends Controller {
   savedSearches = null;
@@ -18,19 +18,19 @@ export default class PreferencesSavedSearchesController extends Controller {
   savedSearchFrequencyOptions() {
     return [
       {
-        name: I18n.t("saved_searches.frequency_options.immediately"),
+        name: i18n("saved_searches.frequency_options.immediately"),
         value: "immediately",
       },
       {
-        name: I18n.t("saved_searches.frequency_options.hourly"),
+        name: i18n("saved_searches.frequency_options.hourly"),
         value: "hourly",
       },
       {
-        name: I18n.t("saved_searches.frequency_options.daily"),
+        name: i18n("saved_searches.frequency_options.daily"),
         value: "daily",
       },
       {
-        name: I18n.t("saved_searches.frequency_options.weekly"),
+        name: i18n("saved_searches.frequency_options.weekly"),
         value: "weekly",
       },
     ];
