@@ -7,9 +7,14 @@
 cs:
   js:
     saved_searches:
-      title: "Uložená hledání"
-      add: "přidat"
+      title: "Uložená vyhledávání"
+      description: "Uložte si až %{count} vyhledávání a dostávejte upozornění na nové výsledky vyhledávání. Každé uložené vyhledávání může mít jinou frekvenci upozornění."
+      none: "Nebylo definováno žádné uložené vyhledávání."
+      add: "Přidat"
       remove: "Smazat"
+      notification: "<span></span> %{description}"
       frequency_options:
+        immediately: "Ihned"
+        hourly: "Každou hodinu"
         daily: "Denně"
         weekly: "Týdně"

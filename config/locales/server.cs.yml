@@ -6,14 +6,24 @@
 
 cs:
   site_settings:
-    saved_searches_enabled: "Povolit uživatelům mít uložená hledání"
-    saved_searches_min_trust_level: "Minimální důvěryhodnost pro ukládání hledání"
+    saved_searches_enabled: "Povolit uživatelům mít uložená vyhledávání"
+    saved_searches_min_trust_level: "Minimální úroveň důvěry pro uložená vyhledávání"
+    saved_searches_allowed_groups: "Povolit uživatelům v těchto skupinách mít uložená vyhledávání"
+    max_saved_searches: "Maximální počet uložených vyhledávání"
   system_messages:
     saved_searches_notification:
-      title: "Nové výsledky hledání"
-      subject_template: "Nové výsledky hledání: %{term}"
+      title: "Nové výsledky vyhledávání"
+      subject_template: "Nové výsledky vyhledávání: %{term}"
       post_link_text: "[**%{title}**, příspěvek #%{post_number}](%{url})"
       text_body_template: |
         Nově nalezené výsledky pro **%{term}**!
 
         %{posts}
+  user_notifications:
+    saved_search:
+      title: "Nový výsledek uloženého vyhledávání"
+      subject_template: "[%{email_prefix}] Nový výsledek uloženého vyhledávání: %{topic_title}"
+      text_body_template: |
+        Byl nalezen nový výsledek uloženého vyhledávání **%{saved_search_query}**.
+
+        %{post_url}
