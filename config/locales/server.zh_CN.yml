@@ -1,10 +1,4 @@
-# WARNING: Never edit this file.
-# It will be overwritten when translations are pulled from Crowdin.
-#
-# To work with us on translations, join this project:
-# https://translate.discourse.org/
-
-zh_CN:
+zh-CN:
   site_settings:
     saved_searches_enabled: "允许用户具有保存的搜索"
     saved_searches_min_trust_level: "具有保存的搜索的最低信任级别"

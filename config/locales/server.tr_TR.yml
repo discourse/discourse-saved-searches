@@ -1,10 +1,4 @@
-# WARNING: Never edit this file.
-# It will be overwritten when translations are pulled from Crowdin.
-#
-# To work with us on translations, join this project:
-# https://translate.discourse.org/
-
-tr_TR:
+tr:
   site_settings:
     saved_searches_enabled: "Kullanıcıların kayıtlı arama yapmasına izin verin"
     saved_searches_min_trust_level: "Kayıtlı aramalar için minimum güven seviyesi"

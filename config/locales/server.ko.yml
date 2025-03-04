@@ -1,9 +1,3 @@
-# WARNING: Never edit this file.
-# It will be overwritten when translations are pulled from Crowdin.
-#
-# To work with us on translations, join this project:
-# https://translate.discourse.org/
-
 ko:
   site_settings:
     saved_searches_enabled: "사용자가 검색을 저장하도록 허용"
