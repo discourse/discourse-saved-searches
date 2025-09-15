@@ -8,8 +8,13 @@ pt:
   js:
     saved_searches:
       title: "Pesquisas Guardadas"
+      description: "Guarde até %{count} pesquisas e receba as notificações sobre novos resultados de pesquisa. Cada pesquisa guardada pode ter uma frequência diferente para as notificações."
+      none: "Não foi definida nenhuma pesquisa guardada."
       add: "Adicionar"
       remove: "Remover"
+      notification: "<span></span> %{description}"
       frequency_options:
-        daily: "Diário"
-        weekly: "Semanal"
+        immediately: "Imediatamente"
+        hourly: "Hora a hora"
+        daily: "Diariamente"
+        weekly: "Semanalmente"
