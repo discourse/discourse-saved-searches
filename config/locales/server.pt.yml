@@ -5,10 +5,25 @@
 # https://translate.discourse.org/
 
 pt:
+  site_settings:
+    saved_searches_enabled: "Permitir que os utilizadores tenham pesquisas guardadas"
+    saved_searches_min_trust_level: "Nível mínimo de confiança para ter pesquisas guardadas"
+    saved_searches_allowed_groups: "Permitir que os utilizadores destes grupos tenham pesquisas guardadas"
+    max_saved_searches: "Número máximo de pesquisas guardadas"
+    keywords:
+      saved_searches_allowed_groups: "saved_searches_min_trust_level"
   system_messages:
     saved_searches_notification:
-      post_link_text: "[**%{title}**, mensagem #%{post_number}](%{url})"
+      title: "Novos Resultados de Pesquisa"
+      subject_template: "Novos resultados de pesquisa: %{term}"
+      post_link_text: "[**%{title}**, publicação #%{post_number}](%{url})"
       text_body_template: |
         Foram encontrados novos resultados para **%{term}**!
 
         %{posts}
+  user_notifications:
+    saved_search:
+      title: "Novo Resultado de Pesquisa Guardado"
+      subject_template: "[%{email_prefix}] Novo resultado de pesquisa guardado: %{topic_title}"
+      text_body_template: |
+        Foi encontrado um novo resultado para a pesquisa guardada **%{saved_search_query}**.
