@@ -3,8 +3,8 @@
 require "rails_helper"
 
 describe Jobs::ScheduleSavedSearches do
-  fab!(:saved_search_1) { Fabricate(:saved_search) }
-  fab!(:saved_search_2) { Fabricate(:saved_search) }
+  fab!(:saved_search_1, :saved_search)
+  fab!(:saved_search_2, :saved_search)
 
   context "when plugin is enabled" do
     before { SiteSetting.saved_searches_enabled = true }

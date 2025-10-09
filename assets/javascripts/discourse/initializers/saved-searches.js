@@ -4,7 +4,7 @@ export default {
   name: "saved-searches",
 
   initialize() {
-    withPluginApi("0.12.0", (api) => {
+    withPluginApi((api) => {
       api.replaceIcon(
         "notification.saved_searches.notification",
         "magnifying-glass"
