@@ -1,18 +1,26 @@
 import Controller from "@ember/controller";
 import { action } from "@ember/object";
+import { dependentKeyCompat } from "@ember/object/compat";
+import { service } from "@ember/service";
 import { ajax } from "discourse/lib/ajax";
 import { popupAjaxError } from "discourse/lib/ajax-error";
-import { propertyLessThan } from "discourse/lib/computed";
+import { removeValueFromArray } from "discourse/lib/array-tools";
 import discourseComputed from "discourse/lib/decorators";
+import { trackedArray } from "discourse/lib/tracked-tools";
 import { i18n } from "discourse-i18n";
 
 export default class PreferencesSavedSearchesController extends Controller {
-  savedSearches = null;
+  @service siteSettings;
+
+  @trackedArray savedSearches;
+
   isSaving = false;
   saved = false;
 
-  @propertyLessThan("savedSearches.length", "siteSettings.max_saved_searches")
-  canAddSavedSearch;
+  @dependentKeyCompat
+  get canAddSavedSearch() {
+    return this.savedSearches.length < this.siteSettings.max_saved_searches;
+  }
 
   @discourseComputed
   savedSearchFrequencyOptions() {
@@ -38,12 +46,12 @@ export default class PreferencesSavedSearchesController extends Controller {
 
   @action
   addSavedSearch() {
-    this.savedSearches.pushObject({ query: "", frequency: "daily" });
+    this.savedSearches.push({ query: "", frequency: "daily" });
   }
 
   @action
   removeSavedSearch(savedSearch) {
-    this.savedSearches.removeObject(savedSearch);
+    removeValueFromArray(this.savedSearches, savedSearch);
   }
 
   @action
