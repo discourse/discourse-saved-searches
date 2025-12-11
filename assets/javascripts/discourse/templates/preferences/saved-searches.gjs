@@ -3,8 +3,8 @@ import { fn } from "@ember/helper";
 import RouteTemplate from "ember-route-template";
 import DButton from "discourse/components/d-button";
 import SaveControls from "discourse/components/save-controls";
+import ComboBox from "discourse/select-kit/components/combo-box";
 import { i18n } from "discourse-i18n";
-import ComboBox from "select-kit/components/combo-box";
 
 export default RouteTemplate(
   <template>
