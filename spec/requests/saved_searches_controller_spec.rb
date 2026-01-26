@@ -1,7 +1,5 @@
 # frozen_string_literal: true
 
-require "rails_helper"
-
 describe SavedSearches::SavedSearchesController do
   fab!(:user) { Fabricate(:user, refresh_auto_groups: true) }
 
