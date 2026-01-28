@@ -1,7 +1,5 @@
 # frozen_string_literal: true
 
-require "rails_helper"
-
 describe Jobs::ScheduleSavedSearches do
   fab!(:saved_search_1, :saved_search)
   fab!(:saved_search_2, :saved_search)
