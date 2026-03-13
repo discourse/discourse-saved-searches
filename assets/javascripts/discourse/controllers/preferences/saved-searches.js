@@ -1,11 +1,10 @@
 import Controller from "@ember/controller";
-import { action } from "@ember/object";
+import { action, computed } from "@ember/object";
 import { dependentKeyCompat } from "@ember/object/compat";
 import { service } from "@ember/service";
 import { ajax } from "discourse/lib/ajax";
 import { popupAjaxError } from "discourse/lib/ajax-error";
 import { removeValueFromArray } from "discourse/lib/array-tools";
-import discourseComputed from "discourse/lib/decorators";
 import { trackedArray } from "discourse/lib/tracked-tools";
 import { i18n } from "discourse-i18n";
 
@@ -22,8 +21,8 @@ export default class PreferencesSavedSearchesController extends Controller {
     return this.savedSearches.length < this.siteSettings.max_saved_searches;
   }
 
-  @discourseComputed
-  savedSearchFrequencyOptions() {
+  @computed
+  get savedSearchFrequencyOptions() {
     return [
       {
         name: i18n("saved_searches.frequency_options.immediately"),
