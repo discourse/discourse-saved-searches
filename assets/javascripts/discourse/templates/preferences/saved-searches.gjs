@@ -24,7 +24,7 @@ export default <template>
           @onChange={{fn (mut savedSearch.frequency)}}
         />
         <DButton
-          class="remove-saved-search"
+          class="btn-transparent btn-danger remove-saved-search"
           @icon="trash-can"
           @title="saved_searches.remove"
           @action={{fn @controller.removeSavedSearch savedSearch}}
@@ -39,7 +39,7 @@ export default <template>
     {{#if @controller.canAddSavedSearch}}
       <div class="controls saved-searches-controls">
         <DButton
-          class="add-saved-search"
+          class="btn-default add-saved-search"
           @icon="plus"
           @label="saved_searches.add"
           @action={{@controller.addSavedSearch}}
